@@ -27,6 +27,7 @@
 - 160 MHz klok snelheid
 - 14 IO digitale pins (6 analoog)
 - 3.3V (5V VBUS)
+- WiFi & Bluetooth
 
 # Structuur
 
