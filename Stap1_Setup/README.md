@@ -21,8 +21,9 @@ main()
 
 ---
 
-```c
 Wat wij zien:
+
+```c
 
 init()
 {
