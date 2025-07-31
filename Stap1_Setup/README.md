@@ -1,4 +1,6 @@
-# structure
+# What is Arduino
+
+# Structuur
 ----------------------------------------------------
 -  ```void setup(){}```
      -  init 
@@ -15,3 +17,17 @@ main()
     loop();
   }
 }
+
+---
+
+```c
+Wat wij zien:
+
+init()
+{
+}
+
+loop()
+{
+}
+```
