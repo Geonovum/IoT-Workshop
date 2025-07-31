@@ -3,7 +3,7 @@
 # Structuur
 ----------------------------------------------------
 -  ```void setup(){}```
-     -  init 
+     -  initialisatie
      - only runs once
 - ```void loop(){}```
   - runs indefinitly
