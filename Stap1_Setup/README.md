@@ -2,9 +2,9 @@
 
 ![Arduino316](https://github.com/user-attachments/assets/8df9108e-2fce-4fc7-b660-835722d35bab)
 
-- Originaly for art instalations
+- Origineel voor kunst installaties
 - Basic computer
-- Standard way of programming
+- Standard way of programming: C
 
 ## Technische specificatie
 
