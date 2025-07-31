@@ -1,5 +1,7 @@
 # Onze eerste 'Sketch'
 
+Het LEDje laten pinken!
+
 <img width="735" height="441" alt="Scherm­afbeelding 2025-07-31 om 11 06 56" src="https://github.com/user-attachments/assets/c62de783-c4c2-49a7-9933-456c7d089765" />
 
 Op je scherm:
