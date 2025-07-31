@@ -2,8 +2,10 @@
 
 # Structuur
 
+Arduino intern:
+
 ``` c
-main()
+main() // begin punt van uitvoering
 {
   init(); // initialisatie, wordt maar 1 keer uitgevoerd
   while (true)
