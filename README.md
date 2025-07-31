@@ -1,7 +1,7 @@
 # Agenda 
 ----------------------------------------------------
-1) What is arduino
+1) Wat is arduino
 2) Arduino IDE
 3) Rules of the electronics game 
 
-[Ga naar Stap1]()
+[Ga naar Stap1](https://github.com/lathoub/IoT/blob/main/Stap1_Setup/README.md)
