@@ -1,59 +1,33 @@
-# What is Arduino
+# What is ArduinoIDE
 
-![Arduino316](https://github.com/user-attachments/assets/8df9108e-2fce-4fc7-b660-835722d35bab)
+Omgeving om het Ding te programmeren - onze tool vandaag
 
-- Origineel voor kunst installaties
-- Basic computer
-- Standard way of programming: C
+## Download link:
+https://www.arduino.cc/en/software
 
-## Technische specificatie
+en installeer!
 
-- 32KB Flash geheugen
-- 2KB SRAM
-- 1KB EEPROM
-- 16 MHz klok snelheid
-- 14 IO digitale pins (6 analoog)
-- 5V
+## Na installatie
 
-# Ons 'Thing': LOLIN Wemos ESP32 C3 v2.1.0
+Op Windows:
 
-![esp32c3](https://github.com/user-attachments/assets/10de5017-6816-4a8f-a801-416655730d11)
+<img width="924" height="706" alt="Scherm­afbeelding 2025-07-31 om 10 55 33" src="https://github.com/user-attachments/assets/161c5c92-fe03-46ea-a43b-34dc7c18baf0" />
 
-## Technische specificatie
+Op MacOS:
 
-- 4MB Flash geheugen
-- 400KB SRAM
-- EEPROM Geëmuleerd
-- 160 MHz klok snelheid
-- 14 IO digitale pins (6 analoog)
-- 3.3V (5V VBUS)
-- WiFi & Bluetooth
+<img width="826" height="594" alt="Scherm­afbeelding 2025-07-31 om 10 41 35" src="https://github.com/user-attachments/assets/84de77a5-bac4-4c51-a94f-fc8d51b5b09c" />
 
-# Structuur
+## Installeer LOLIN C3 Mini
 
-Arduino intern:
+<img width="418" height="231" alt="Scherm­afbeelding 2025-07-31 om 10 56 55" src="https://github.com/user-attachments/assets/88e77c53-2a36-423c-9256-df0698e52c2c" />
 
-``` c
-main() // begin punt van uitvoering
-{
-  init(); // initialisatie, wordt maar 1 keer uitgevoerd
-  while (true)
-  {
-    loop(); // loopt voor altijd, geen initialisaties hier
-  }
-}
-```
+Windows:
 
----
+<img width="927" height="703" alt="Scherm­afbeelding 2025-07-31 om 10 58 36" src="https://github.com/user-attachments/assets/85765ea1-d963-4b27-87b6-a32db55a4e6d" />
 
-Wat wij zien:
+MacOS:
 
-```c
-void init()
-{
-}
+<img width="828" height="594" alt="Scherm­afbeelding 2025-07-31 om 10 59 07" src="https://github.com/user-attachments/assets/d1db17cd-aa2a-4492-ae0b-27693bdfa13e" />
 
-void loop()
-{
-}
-```
+
+[Ga naar Blink](Blink.md)
