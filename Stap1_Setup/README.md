@@ -1,20 +1,14 @@
 # What is Arduino
 
 # Structuur
-----------------------------------------------------
--  ```void setup(){}```
-     -  initialisatie
-     - only runs once
-- ```void loop(){}```
-  - runs indefinitly
-  - **do** **not** initialize here
- ``` c
+
+``` c
 main()
 {
-  init();
+  init(); // initialisatie, wordt maar 1 keer uitgevoerd
   while (true)
   {
-    loop();
+    loop(); // loopt voor altijd, geen initialisaties hier
   }
 }
 ```
