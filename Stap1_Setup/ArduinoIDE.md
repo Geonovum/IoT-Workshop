@@ -27,5 +27,13 @@ Zoek op: "esp32-c3" & **Install**
 
 ## Kies LOLIN C3 Mini
 
+Kies ons Ding: LOLIN C3 Mini
+
+<img width="587" height="410" alt="Scherm­afbeelding 2025-07-31 om 11 26 07" src="https://github.com/user-attachments/assets/2e84a09b-7ccf-4231-a0e0-ab5a287fa7ac" />
+
+Kies Seriele poort:
+
+<img width="589" height="408" alt="Scherm­afbeelding 2025-07-31 om 11 25 46" src="https://github.com/user-attachments/assets/2684d9e6-76ac-4649-818f-edd15d64cd69" />
+
 
 [Ga naar Blink](Blink.md)
