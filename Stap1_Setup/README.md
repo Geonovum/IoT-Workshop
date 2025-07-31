@@ -24,11 +24,11 @@ main()
 Wat wij zien:
 
 ```c
-init()
+void init()
 {
 }
 
-loop()
+void loop()
 {
 }
 ```
