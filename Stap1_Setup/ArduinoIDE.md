@@ -17,17 +17,15 @@ Op MacOS:
 
 <img width="826" height="594" alt="Scherm­afbeelding 2025-07-31 om 10 41 35" src="https://github.com/user-attachments/assets/84de77a5-bac4-4c51-a94f-fc8d51b5b09c" />
 
-## Installeer LOLIN C3 Mini
+## Installeer "Boards"
 
-<img width="418" height="231" alt="Scherm­afbeelding 2025-07-31 om 10 56 55" src="https://github.com/user-attachments/assets/88e77c53-2a36-423c-9256-df0698e52c2c" />
+<img width="857" height="465" alt="Scherm­afbeelding 2025-07-31 om 11 27 15" src="https://github.com/user-attachments/assets/4010755e-bf22-40f0-b682-d84b3306eaec" />
 
-Windows:
+Zoek op: "esp32-c3" & **Install**
 
-<img width="927" height="703" alt="Scherm­afbeelding 2025-07-31 om 10 58 36" src="https://github.com/user-attachments/assets/85765ea1-d963-4b27-87b6-a32db55a4e6d" />
+<img width="711" height="366" alt="Scherm­afbeelding 2025-07-31 om 11 26 41" src="https://github.com/user-attachments/assets/1ce47b49-bd64-45e5-aca2-c6d2497ddf29" />
 
-MacOS:
-
-<img width="828" height="594" alt="Scherm­afbeelding 2025-07-31 om 10 59 07" src="https://github.com/user-attachments/assets/d1db17cd-aa2a-4492-ae0b-27693bdfa13e" />
+## Kies LOLIN C3 Mini
 
 
 [Ga naar Blink](Blink.md)
