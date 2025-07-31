@@ -1,61 +1,24 @@
-# What is Arduino
+# Onze eerste 'Sketch'
 
-![Arduino316](https://github.com/user-attachments/assets/8df9108e-2fce-4fc7-b660-835722d35bab)
+<img width="735" height="441" alt="Scherm­afbeelding 2025-07-31 om 11 06 56" src="https://github.com/user-attachments/assets/c62de783-c4c2-49a7-9933-456c7d089765" />
 
-- Origineel voor kunst installaties
-- Basic computer
-- Standard way of programming: C
+Op je scherm:
 
-## Technische specificatie
+<img width="810" height="852" alt="Scherm­afbeelding 2025-07-31 om 11 07 49" src="https://github.com/user-attachments/assets/bd03a71a-ca1e-49bd-8080-b6d50030b59a" />
 
-- 32KB Flash geheugen
-- 2KB SRAM
-- 1KB EEPROM
-- 16 MHz klok snelheid
-- 14 IO digitale pins (6 analoog)
-- 5V
+Upload:
 
-# Ons 'Thing': LOLIN Wemos ESP32 C3 v2.1.0
+<img width="421" height="165" alt="Scherm­afbeelding 2025-07-31 om 11 08 46" src="https://github.com/user-attachments/assets/87080c3d-dcc4-417a-8b73-604040e1b34d" />
 
-![esp32c3](https://github.com/user-attachments/assets/10de5017-6816-4a8f-a801-416655730d11)
+Compileren naar Ding:
 
-## Technische specificatie
+<img width="806" height="851" alt="Scherm­afbeelding 2025-07-31 om 11 09 08" src="https://github.com/user-attachments/assets/a4c35026-bb06-4003-8e85-d90e3005a59d" />
 
-- 4MB Flash geheugen
-- 400KB SRAM
-- EEPROM Geëmuleerd
-- 160 MHz klok snelheid
-- 14 IO digitale pins (6 analoog)
-- 3.3V (5V VBUS)
-- WiFi & Bluetooth
+Transfer naar Ding:
 
-# Structuur
+<img width="808" height="1669" alt="Scherm­afbeelding 2025-07-31 om 11 11 03" src="https://github.com/user-attachments/assets/3b68d7ea-4d48-47fb-99ed-35a5dddefd85" />
 
-Arduino intern:
+Resultaat:
 
-``` c
-main() // begin punt van uitvoering
-{
-  init(); // initialisatie, wordt maar 1 keer uitgevoerd
-  while (true)
-  {
-    loop(); // loopt voor altijd, geen initialisaties hier
-  }
-}
-```
+https://github.com/user-attachments/assets/a8f336ab-55cd-4dcc-afb8-8208539f5c27
 
----
-
-Wat wij zien:
-
-```c
-void init()
-{
-}
-
-void loop()
-{
-}
-```
-
-[Ga naar Arduino IDE](Arduino.md)
