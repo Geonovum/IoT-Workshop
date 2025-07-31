@@ -24,7 +24,6 @@ main()
 Wat wij zien:
 
 ```c
-
 init()
 {
 }
