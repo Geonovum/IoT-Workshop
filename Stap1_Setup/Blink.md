@@ -25,4 +25,4 @@ Resultaat:
 https://github.com/user-attachments/assets/95d8eaa8-f0dd-45f9-9507-6f01347efe9a
 
 
-[Ga naar Stap2]()
+[Ga naar Stap2](https://github.com/lathoub/IoT/blob/main/Stap2_Log/Log.ino)
