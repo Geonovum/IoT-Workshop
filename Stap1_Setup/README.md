@@ -58,4 +58,4 @@ void loop()
 }
 ```
 
-[Ga naar ArduinoIDE](ArduinoIDE.md)
+[Ga naar ArduinoIDE]([ArduinoIDE.md](../Stap2_Log/Log.ino))
