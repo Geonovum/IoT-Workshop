@@ -1,0 +1,20 @@
+meta {
+  name: new Sensor MB090
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{Endpoint}}/Sensors
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "MB090",
+    "description": "Flex Sensor - 90mm",
+    "encodingType": "application/pdf",
+    "metadata": "https://www.tinytronics.nl/product_files/002407_MB090.pdf"
+  }
+}
