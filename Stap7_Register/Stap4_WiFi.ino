@@ -9,8 +9,6 @@ void setup() {
   pinMode(0, INPUT);
 
   Serial.println();
-  Serial.print("[MAC] address: ");
-
   Serial.print("[WiFi] Connecting to ");
   Serial.println(SECRET_SSID);
 
