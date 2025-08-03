@@ -29,6 +29,9 @@
 - 3.3V (5V VBUS)
 - WiFi & Bluetooth
 
+----
+
+
 # Structuur
 
 Arduino intern:
