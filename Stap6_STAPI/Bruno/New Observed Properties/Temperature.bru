@@ -6,8 +6,16 @@ meta {
 
 post {
   url: 
-  body: none
+  body: json
   auth: inherit
+}
+
+body:json {
+  {
+    "name": "Temperature",
+    "description": "The degree or intensity of heat present in the area",
+    "definition": "https://qudt.org/vocab/quantitykind/Temperature"
+  }
 }
 
 settings {

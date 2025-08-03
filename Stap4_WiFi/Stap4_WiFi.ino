@@ -9,7 +9,8 @@ void setup() {
   pinMode(0, INPUT);
 
   Serial.println();
-  Serial.print("[MAC] address: ");
+  Serial.print("[MAC] address: TODO");
+  Serial.println(SECRET_SSID);
 
   Serial.print("[WiFi] Connecting to ");
   Serial.println(SECRET_SSID);
