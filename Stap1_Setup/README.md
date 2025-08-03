@@ -15,9 +15,9 @@
 - 14 IO digitale pins (6 analoog)
 - 5V
 
-# Ons 'Thing': LOLIN Wemos ESP32 C3 v2.1.0
+# Ons 'Thing': Seeed Studio XIAO ESP32 C3
 
-![esp32c3](https://github.com/user-attachments/assets/10de5017-6816-4a8f-a801-416655730d11)
+<img width="500" height="636" alt="board-pic" src="https://github.com/user-attachments/assets/cfa799da-872b-4a6b-b5ff-d1169de54596" />
 
 ## Technische specificatie
 
@@ -25,7 +25,7 @@
 - 400KB SRAM
 - EEPROM Geëmuleerd
 - 160 MHz klok snelheid
-- 14 IO digitale pins (6 analoog)
+- 11 IO digitale pins (4 analoog)
 - 3.3V (5V VBUS)
 - WiFi & Bluetooth
 
