@@ -5,12 +5,12 @@ const uint8_t echoPin = D7;
 
 float distance = -1.0f;
 
-void setupSensors() {
+void setupSensor() {
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
 }
 
-void loopSensors() {
+void loopSensor() {
   delay(10);
 
   digitalWrite(trigPin, LOW);

@@ -19,7 +19,7 @@
 
 AM232X AM2320;
 
-void setupSensors() {
+void setupSensor() {
   Serial.println("Looking for AM2320");
   if (! AM2320.begin() )
   {
@@ -32,7 +32,7 @@ void setupSensors() {
   delay(2000);
 }
 
-void loopSensors() {
+void loopSensor() {
   delay(500);
 
   int status = AM2320.read();

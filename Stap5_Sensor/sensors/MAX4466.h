@@ -1,10 +1,10 @@
 const uint8_t soundPin = A0; // analoge uitgang van versterkt microfoon signaal
 
-void setupSensors() {
+void setupSensor() {
   // A0 for analog in
 }
 
-void loopSensors() {
+void loopSensor() {
   delay(100);
   
   auto value = analogRead(soundPin);         //Read and save analog value from potentiometer

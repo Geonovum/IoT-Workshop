@@ -14,7 +14,7 @@
 
 Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified(12345);
 
-void setupSensors() {
+void setupSensor() {
   accel.begin();
 
   /* Set the range to whatever is appropriate for your project */
@@ -24,7 +24,7 @@ void setupSensors() {
   //accel.setRange(ADXL345_RANGE_2_G);
 }
 
-void loopSensors() {
+void loopSensor() {
   sensors_event_t event;
   accel.getEvent(&event);
 

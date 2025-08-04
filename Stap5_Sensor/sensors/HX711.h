@@ -7,7 +7,7 @@ const uint8_t clockPin = D3;
 
 uint16 calibrate = 476; // manually calibrated, magic number
 
-void setupSensors() {
+void setupSensor() {
   scale.begin(dataPin, clockPin);
 
   // Scale resolution max 5kg
@@ -28,7 +28,7 @@ const float measureWeight()
   return weight;
 }
 
-void loopSensors() {
+void loopSensor() {
   auto value = measureWeight();
 
   transmitValue(value);
