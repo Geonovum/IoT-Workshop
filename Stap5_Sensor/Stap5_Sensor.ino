@@ -9,7 +9,7 @@
  * 
  * Hardware: XIAO ESP32 C3 with various sensors
  * Author: IoT Project
- * Date: 2024
+ * Date: aug 2025
  */
 
 // Include helper libraries for different system components
@@ -34,9 +34,9 @@ void transmitValue(float value);
  * due to pin conflicts and I2C address conflicts.
  */
 //#include "sensors/ADXL345.h" // 3-axis Accelerometer (I2C - conflicts with HCSR04)
-#include "sensors/HCSR04.h"  // Ultrasonic distance sensor (D2/D3 pins)
+//#include "sensors/HCSR04.h"  // Ultrasonic distance sensor (D2/D3 pins)
 //#include "sensors/AM2320.h"  // Temperature & humidity sensor (I2C - conflicts with HCSR04)
-//#include "sensors/MAX4466.h" // Microphone/sound sensor (A0 pin - no conflicts)
+#include "sensors/MAX4466.h" // Microphone/sound sensor (A0 pin - no conflicts)
 //#include "sensors/HMC5883.h" // 3-Axis Compass Magnetometer (I2C - conflicts with HCSR04)
 //#include "sensors/HX711.h"   // Weight/load cell sensor (D6/D10 pins - no conflicts)
 

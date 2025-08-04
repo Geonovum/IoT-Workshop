@@ -8,9 +8,9 @@ void setup() {
   // Set GPIO0 Boot button as input
   pinMode(0, INPUT);
 
-  Serial.println();
-  Serial.print("[MAC] address: TODO");
-  Serial.println(SECRET_SSID);
+  uint64_t chipid = ESP.getEfuseMac();  //The chip ID is essentially its MAC address(length: 6 bytes).
+  Serial.print("[WiFi] MAC address: ");
+  Serial.println(mac2String((byte *)&chipid));
 
   Serial.print("[WiFi] Connecting to ");
   Serial.println(SECRET_SSID);
@@ -28,19 +28,33 @@ void setup() {
   while (true) {
 
     switch (WiFi.status()) {
-      case WL_NO_SSID_AVAIL: Serial.println("[WiFi] SSID not found"); break;
+      case WL_NO_SSID_AVAIL:
+        Serial.println("[WiFi] SSID not found");
+        break;
       case WL_CONNECT_FAILED:
-        Serial.print("[WiFi] Failed - WiFi not connected! Reason: ");
+        Serial.println("[WiFi] Failed - WiFi not connected! Reason: Connection failed");
         return;
         break;
-      case WL_CONNECTION_LOST: Serial.println("[WiFi] Connection was lost"); break;
-      case WL_SCAN_COMPLETED: Serial.println("[WiFi] Scan is completed"); break;
-      case WL_DISCONNECTED: Serial.println("[WiFi] WiFi is disconnected"); break;
+      case WL_CONNECTION_LOST:
+        Serial.println("[WiFi] Connection was lost");
+        break;
+      case WL_SCAN_COMPLETED:
+        Serial.println("[WiFi] Scan is completed");
+        break;
+      case WL_DISCONNECTED:
+        Serial.println("[WiFi] WiFi is disconnected");
+        break;
       case WL_CONNECTED:
         Serial.println("[WiFi] WiFi is connected!");
         Serial.print("[WiFi] IP address: ");
         Serial.println(WiFi.localIP());
         return;
+        break;
+      case WL_IDLE_STATUS:
+        Serial.println("[WiFi] WiFi is in idle state");
+        break;
+      case WL_NO_SHIELD:
+        Serial.println("[WiFi] No WiFi shield is present");
         break;
       default:
         Serial.print("[WiFi] WiFi Status: ");
@@ -50,7 +64,7 @@ void setup() {
     delay(tryDelay);
 
     if (numberOfTries <= 0) {
-      Serial.print("[WiFi] Failed to connect to WiFi!");
+      Serial.println("[WiFi] Failed to connect to WiFi!");
       // Use disconnect function to force stop trying to connect
       WiFi.disconnect();
       return;
