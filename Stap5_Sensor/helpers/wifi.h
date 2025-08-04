@@ -2,28 +2,35 @@
 
 #include <WiFi.h>
 
-bool connect2Wifi(char *ssid, char *pass) {
-  Serial.print("\nConnecting to ");
-  Serial.println(ssid);
+// WiFi connection status tracking
+extern bool wifiConnected;
+extern unsigned long wifiStartTime;
 
-  /* Explicitly set the ESP8266 to be a WiFi-client, otherwise, it by default,
-     would try to act as both a client and an access-point and could cause
-     network-issues with your other WiFi-devices on your WiFi-network. */
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(ssid, pass);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-  Serial.println("");
-  Serial.println("WiFi connected");
-  Serial.print("IP address: ");
-  Serial.println(WiFi.localIP());
-  Serial.print("MAC address: ");
-  Serial.println(WiFi.macAddress());
-
-  return true;
+void setupWiFi()
+{
+    // Non-blocking WiFi connection
+    wifiStartTime = millis();
+    WiFi.begin(SECRET_SSID, SECRET_PASS);
+    Serial.println("Attempting to connect to WiFi...");
 }
 
-void loopWifi() {
+void loopWifi() { 
+  // Check WiFi connection status
+  if (!wifiConnected && WiFi.status() == WL_CONNECTED) {
+    wifiConnected = true;
+    Serial.println("WiFi connected!");
+    Serial.print("IP address: ");
+    Serial.println(WiFi.localIP());
+  } else if (wifiConnected && WiFi.status() != WL_CONNECTED) {
+    wifiConnected = false;
+    Serial.println("WiFi connection lost!");
+  }
+
+  // Reconnect if connection is lost for too long
+  if (!wifiConnected && (millis() - wifiStartTime > 60000)) { // 1 minute
+    Serial.println("Attempting WiFi reconnection...");
+    WiFi.disconnect();
+    WiFi.begin(SECRET_SSID, SECRET_PASS);
+    wifiStartTime = millis();
+  }
 }

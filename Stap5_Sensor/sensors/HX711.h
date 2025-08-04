@@ -2,8 +2,9 @@
 
 HX711 scale; // instance
 
-const uint8_t dataPin = D2;
-const uint8_t clockPin = D3;
+// Updated pin definitions to avoid conflict with HCSR04
+const uint8_t dataPin = D6;   // Changed from D2
+const uint8_t clockPin = D10; // Changed from D3
 
 uint16 calibrate = 476; // manually calibrated, magic number
 
@@ -15,6 +16,8 @@ void setupSensor() {
 
   // reset the scale to zero = 0
   scale.tare();
+  
+  Serial.println("HX711 Weight Sensor initialized");
 }
 
 const float measureWeight()

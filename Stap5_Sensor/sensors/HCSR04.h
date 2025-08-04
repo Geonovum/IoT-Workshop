@@ -1,29 +1,61 @@
 // zie: https://create.arduino.cc/projecthub/abdularbi17/ultrasonic-sensor-hc-sr04-with-arduino-tutorial-327ff6
 
-const uint8_t trigPin = D8;
-const uint8_t echoPin = D7;
+// Updated pin definitions for XIAO ESP32 C3
+const uint8_t trigPin = D2;  // Changed from D8
+const uint8_t echoPin = D3;  // Changed from D7
 
 float distance = -1.0f;
+unsigned long lastDistanceUpdate = 0;
+bool distanceSensorError = false;
 
 void setupSensor() {
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
+  Serial.println("HCSR04 Distance Sensor initialized");
 }
 
 void loopSensor() {
-  delay(10);
-
+  // Add some delay between readings to avoid interference
+  if (millis() - lastDistanceUpdate < 100) {
+    return; // Don't read too frequently
+  }
+  
+  lastDistanceUpdate = millis();
+  
+  // Clear the trigger pin
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
+  
+  // Send 10 microsecond pulse
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
-
-  auto duration = pulseIn(echoPin, HIGH); // duration in xxx
-  distance = (duration) * 0.0343 / 2; // Speed of sound (343 m/s) divided by 2 (to go and back)
-
-  Serial.print("Distance: ");
-  Serial.print(distance);
-  Serial.println(" cm");
-
-  transmitValue(distance);
+  digitalWrite(trigPin, LOW);
+  
+  // Read the echo pin
+  unsigned long duration = pulseIn(echoPin, HIGH, 30000); // 30ms timeout
+  
+  // Check for timeout or invalid reading
+  if (duration == 0) {
+    if (!distanceSensorError) {
+      Serial.println("Distance sensor timeout - check wiring");
+      distanceSensorError = true;
+    }
+    distance = -1.0f;
+  } else {
+    // Calculate distance in cm
+    distance = duration * 0.0343 / 2; // Speed of sound (343 m/s) divided by 2 (to go and back)
+    
+    // Validate distance reading (reasonable range: 2cm to 400cm)
+    if (distance >= 2.0 && distance <= 400.0) {
+      distanceSensorError = false;
+      Serial.printf("Distance: %.1f cm\n", distance);
+      transmitValue(distance);
+    } else {
+      if (!distanceSensorError) {
+        Serial.printf("Invalid distance reading: %.1f cm\n", distance);
+        distanceSensorError = true;
+      }
+      distance = -1.0f;
+    }
+  }
 }
