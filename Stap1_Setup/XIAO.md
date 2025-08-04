@@ -1,10 +1,10 @@
-# What is Arduino
+# Wat is arduino 
 
 ![Arduino316](https://github.com/user-attachments/assets/8df9108e-2fce-4fc7-b660-835722d35bab)
 
 - Origineel voor kunst installaties
-- Basic computer
-- Standard way of programming: C
+- Simple computer
+- Standaard manier om in C te programmeren 
 
 ## Technische specificatie
 
@@ -13,7 +13,7 @@
 - 1KB EEPROM
 - 16 MHz klok snelheid
 - 14 IO digitale pins (6 analoog)
-- 5V
+- **5V** IO standaart 
 
 # Ons 'Thing': Seeed Studio XIAO ESP32 C3
 
@@ -26,7 +26,7 @@
 - EEPROM Geëmuleerd
 - 160 MHz klok snelheid
 - 11 IO digitale pins (4 analoog)
-- 3.3V (5V VBUS)
+- **3.3V** IO standaart 
 - WiFi & Bluetooth
 
 [Ga naar ArduinoIDE](Programmeren.md)
