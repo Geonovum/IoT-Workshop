@@ -17,12 +17,7 @@
 #include "helpers/arduino_secrets.h"  // WiFi credentials and secrets
 #include "helpers/wifi.h"         // WiFi connection management
 //#include "helpers/dateTime.h"   // Time synchronization (currently disabled)
-#include "helpers/gps.h"          // GPS location tracking
-
-// Global variables for non-blocking WiFi connection management
-unsigned long wifiStartTime = 0;    // Timestamp when WiFi connection attempt started
-bool wifiConnected = false;         // Current WiFi connection status
-unsigned long lastGPSUpdate = 0;    // Timestamp of last GPS data update
+#include "helpers/gnss.h"          // GPS location tracking
 
 // Function declaration for data transmission
 void transmitValue(float value);
@@ -33,12 +28,12 @@ void transmitValue(float value);
  * Uncomment the sensor you want to use. Only one sensor can be active at a time
  * due to pin conflicts and I2C address conflicts.
  */
-//#include "sensors/ADXL345.h" // 3-axis Accelerometer (I2C - conflicts with HCSR04)
-//#include "sensors/HCSR04.h"  // Ultrasonic distance sensor (D2/D3 pins)
-//#include "sensors/AM2320.h"  // Temperature & humidity sensor (I2C - conflicts with HCSR04)
-#include "sensors/MAX4466.h" // Microphone/sound sensor (A0 pin - no conflicts)
-//#include "sensors/HMC5883.h" // 3-Axis Compass Magnetometer (I2C - conflicts with HCSR04)
-//#include "sensors/HX711.h"   // Weight/load cell sensor (D6/D10 pins - no conflicts)
+//#include "ADXL345.h" // 3-axis Accelerometer (I2C - conflicts with HCSR04)
+//#include "HCSR04.h"  // Ultrasonic distance sensor (D2/D3 pins)
+//#include "AM2320.h"  // Temperature & humidity sensor (I2C - conflicts with HCSR04)
+#include "MAX4466.h" // Microphone/sound sensor (A0 pin - no conflicts)
+//#include "HMC5883.h" // 3-Axis Compass Magnetometer (I2C - conflicts with HCSR04)
+//#include "HX711.h"   // Weight/load cell sensor (D6/D10 pins - no conflicts)
 
 /**
  * Setup function - runs once at startup
@@ -68,7 +63,7 @@ void transmitValue(float value)
 {
   if (WiFi.status() == WL_CONNECTED) {
     // WiFi is connected - ready to transmit data
-    Serial.printf("Transmitting: %.2f\n", value);
+ //   Serial.printf("Transmitting: %.2f\n", value);
     
     // TODO: Add your data transmission code here
     // Example implementations:
@@ -78,7 +73,7 @@ void transmitValue(float value)
     // - Custom TCP/UDP protocol
   } else {
     // WiFi not connected - log the value for debugging
-    Serial.printf("WiFi not connected. Value: %.2f\n", value);
+    Serial.printf("[WiFi] Not connected to Transmit. Value: %.2f\n", value);
   }
 }
 

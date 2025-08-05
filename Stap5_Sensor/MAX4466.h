@@ -9,8 +9,8 @@ void loopSensor() {
   
   auto value = analogRead(soundPin);         //Read and save analog value from potentiometer
 
-  Serial.print("level: ");
-  Serial.println(value);
+ // Serial.print("level: ");
+ // Serial.println(value);
 
   transmitValue(value);
 }

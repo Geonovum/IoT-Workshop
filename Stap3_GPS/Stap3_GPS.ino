@@ -20,14 +20,14 @@
 // GPS Module Pin Configuration
 #define RXPin D7          // GPS module TX connects to ESP32 D7 (RX)
 #define TXPin D6          // GPS module RX connects to ESP32 D6 (TX) - optional
-static const uint32_t GPSBaud = 9600;  // Standard GPS baud rate
+static const uint32_t GNSSBaud = 9600;  // Standard GPS baud rate
 
 // Reference coordinates for Amersfoort, Netherlands
 static const double AMERSFOORT_LAT = 52.1561113;
 static const double AMERSFOORT_LON = 5.3878266;
 
 // The TinyGPSPlus object for parsing GPS data
-TinyGPSPlus gps;
+TinyGPSPlus gnss;
 
 // Forward declaration of smartDelay function
 static void smartDelay(unsigned long ms);
@@ -39,56 +39,49 @@ void setup()
   while(!Serial) {
     // Wait for serial connection (useful for USB debugging)
   }
-  Serial.println(F("GPS Module Test Starting..."));
+  Serial.println(F("GNSS Module Test Starting..."));
   Serial.println(F("================================"));
 
   // Initialize GPS serial communication
-  Serial1.begin(GPSBaud, SERIAL_8N1, RXPin, TXPin);
-  Serial.println(F("GPS Serial1 initialized"));
-
-  // Display header information
-  Serial.println(F("TinyGPSPlus Library Test"));
-  Serial.print(F("Library Version: ")); 
-  Serial.println(TinyGPSPlus::libraryVersion());
-  Serial.println(F("Author: Mikal Hart"));
-  Serial.println();
-  
+  Serial1.begin(GNSSBaud, SERIAL_8N1, RXPin, TXPin);
+  Serial.println(F("GNSS Serial1 initialized"));
+ 
   // Print column headers for GPS data display
-  Serial.println(F("GPS Data Display Format:"));
+  Serial.println(F("GNSS Data Display Format:"));
   Serial.println(F("Sats HDOP  Latitude   Longitude   Fix  Date       Time     Date Alt    Course Speed Card  Distance Course Card  Chars Sentences Checksum"));
-  Serial.println(F("           (deg)      (deg)       Age                      Age  (m)    --- from GPS ----  ---- to Amersfoort  ---  RX    RX        Fail"));
+  Serial.println(F("           (deg)      (deg)       Age                      Age  (m)    --- from GNSS ---  ---- to Amersfoort  ---  RX    RX        Fail"));
   Serial.println(F("----------------------------------------------------------------------------------------------------------------------------------------"));
 }
 
 void loop()
 {
   // Display GPS satellite information
-  printInt(gps.satellites.value(), gps.satellites.isValid(), 5);
+  printInt(gnss.satellites.value(), gnss.satellites.isValid(), 5);
   
   // Display Horizontal Dilution of Precision (HDOP) - lower is better
-  printFloat(gps.hdop.hdop(), gps.hdop.isValid(), 6, 1);
+  printFloat(gnss.hdop.hdop(), gnss.hdop.isValid(), 6, 1);
   
   // Display latitude and longitude
-  printFloat(gps.location.lat(), gps.location.isValid(), 11, 6);
-  printFloat(gps.location.lng(), gps.location.isValid(), 12, 6);
+  printFloat(gnss.location.lat(), gnss.location.isValid(), 11, 6);
+  printFloat(gnss.location.lng(), gnss.location.isValid(), 12, 6);
   
   // Display location age (how old the fix is)
-  printInt(gps.location.age(), gps.location.isValid(), 5);
+  printInt(gnss.location.age(), gnss.location.isValid(), 5);
   
   // Display date and time from GPS
-  printDateTime(gps.date, gps.time);
+  printDateTime(gnss.date, gnss.time);
   
   // Display altitude in meters
-  printFloat(gps.altitude.meters(), gps.altitude.isValid(), 7, 2);
+  printFloat(gnss.altitude.meters(), gnss.altitude.isValid(), 7, 2);
   
   // Display course (heading) in degrees
-  printFloat(gps.course.deg(), gps.course.isValid(), 7, 2);
+  printFloat(gnss.course.deg(), gnss.course.isValid(), 7, 2);
   
   // Display speed in km/h
-  printFloat(gps.speed.kmph(), gps.speed.isValid(), 6, 2);
+  printFloat(gnss.speed.kmph(), gnss.speed.isValid(), 6, 2);
   
   // Display cardinal direction (N, NE, E, SE, S, SW, W, NW)
-  printStr(gps.course.isValid() ? TinyGPSPlus::cardinal(gps.course.deg()) : "*** ", 6);
+  printStr(gnss.course.isValid() ? TinyGPSPlus::cardinal(gnss.course.deg()) : "*** ", 6);
 
   // Calculate distance to Amersfoort in kilometers
   unsigned long distanceKmToAmersfoort =
@@ -102,31 +95,31 @@ void loop()
   // Calculate course (bearing) to Amersfoort
   double courseToAmersfoort =
     TinyGPSPlus::courseTo(
-      gps.location.lat(),
-      gps.location.lng(),
+      gnss.location.lat(),
+      gnss.location.lng(),
       AMERSFOORT_LAT, 
       AMERSFOORT_LON);
 
-  printFloat(courseToAmersfoort, gps.location.isValid(), 7, 2);
+  printFloat(courseToAmersfoort, gnss.location.isValid(), 7, 2);
 
   // Display cardinal direction to Amersfoort
   const char *cardinalToAmersfoort = TinyGPSPlus::cardinal(courseToAmersfoort);
-  printStr(gps.location.isValid() ? cardinalToAmersfoort : "*** ", 6);
+  printStr(gnss.location.isValid() ? cardinalToAmersfoort : "*** ", 6);
 
   // Display GPS data quality metrics
-  printInt(gps.charsProcessed(), true, 6);        // Total characters processed
-  printInt(gps.sentencesWithFix(), true, 10);     // Sentences with valid fix
-  printInt(gps.failedChecksum(), true, 9);        // Failed checksum count
+  printInt(gnss.charsProcessed(), true, 6);        // Total characters processed
+  printInt(gnss.sentencesWithFix(), true, 10);     // Sentences with valid fix
+  printInt(gnss.failedChecksum(), true, 9);        // Failed checksum count
   
   Serial.println();  // End of data line
   
   // Smart delay that feeds GPS data while waiting
   smartDelay(1000);
 
-  // Check if GPS is receiving data (after 5 seconds)
-  if (millis() > 5000 && gps.charsProcessed() < 10) {
-    Serial.println(F("WARNING: No GPS data received - check wiring and connections"));
-    Serial.println(F("Make sure GPS module is powered and connected to D7 (RX)"));
+  // Check if gnss is receiving data (after 5 seconds)
+  if (millis() > 5000 && gnss.charsProcessed() < 10) {
+    Serial.println(F("WARNING: No GNSS data received - check wiring and connections"));
+    Serial.println(F("Make sure GNSS module is powered and connected to D7 (RX)"));
   }
 }
 
@@ -143,7 +136,7 @@ static void smartDelay(unsigned long ms)
   {
     // Process any available GPS data while waiting
     while (Serial1.available()) {
-      gps.encode(Serial1.read());
+      gnss.encode(Serial1.read());
     }
   } while (millis() - start < ms);
 }

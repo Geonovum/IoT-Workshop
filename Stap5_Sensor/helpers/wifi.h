@@ -3,38 +3,8 @@
 #include <WiFi.h>
 
 // WiFi connection status tracking
-extern bool wifiConnected;
-extern unsigned long wifiStartTime;
-
-void setupWiFi() {
-  // Non-blocking WiFi connection
-  wifiStartTime = millis();
-  WiFi.begin(SECRET_SSID, SECRET_PASS);
-  Serial.println("Attempting to connect to WiFi...");
-}
-
-void loopWifi() {
-  // Check WiFi connection status
-  if (!wifiConnected && WiFi.status() == WL_CONNECTED) {
-    wifiConnected = true;
-    Serial.println("WiFi connected!");
-    Serial.print("IP address: ");
-    Serial.println(WiFi.localIP());
-    Serial.print("MAC address: ");
-    Serial.println(mac2String((byte *)&chipid));
-  } else if (wifiConnected && WiFi.status() != WL_CONNECTED) {
-    wifiConnected = false;
-    Serial.println("WiFi connection lost!");
-  }
-
-  // Reconnect if connection is lost for too long
-  if (!wifiConnected && (millis() - wifiStartTime > 60000)) { // 1 minute
-    Serial.println("Attempting WiFi reconnection...");
-    WiFi.disconnect();
-    WiFi.begin(SECRET_SSID, SECRET_PASS);
-    wifiStartTime = millis();
-  }
-}
+unsigned long wifiStartTime = 0;    // Timestamp when WiFi connection attempt started
+bool wifiConnected = false;         // Current WiFi connection status
 
 String mac2String(byte ar[]) {
   String s;
@@ -47,4 +17,39 @@ String mac2String(byte ar[]) {
       s += ':';
   }
   return s;
+}
+
+void setupWiFi() {
+
+    Serial.println("[WiFi] initializing");
+
+  uint64_t chipid = ESP.getEfuseMac();  //The chip ID is essentially its MAC address(length: 6 bytes).
+  Serial.print("[Eth] MAC address: ");
+  Serial.println(mac2String((byte *)&chipid));
+
+  // Non-blocking WiFi connection
+  wifiStartTime = millis();
+  WiFi.begin(SECRET_SSID, SECRET_PASS);
+  Serial.println("[Wifi] Attempting to connect to WiFi...");
+}
+
+void loopWifi() {
+  // Check WiFi connection status
+  if (!wifiConnected && WiFi.status() == WL_CONNECTED) {
+    wifiConnected = true;
+    Serial.println("[WiFi] Connected!");
+    Serial.print("[WiFi] IP address: ");
+    Serial.println(WiFi.localIP());
+  } else if (wifiConnected && WiFi.status() != WL_CONNECTED) {
+    wifiConnected = false;
+    Serial.println("[WiFi] Connection lost!");
+  }
+
+  // Reconnect if connection is lost for too long
+  if (!wifiConnected && (millis() - wifiStartTime > 60000)) { // 1 minute
+    Serial.println("[WiFi] Attempting reconnection...");
+    WiFi.disconnect();
+    WiFi.begin(SECRET_SSID, SECRET_PASS);
+    wifiStartTime = millis();
+  }
 }
