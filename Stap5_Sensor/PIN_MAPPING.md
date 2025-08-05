@@ -1,62 +1,44 @@
-# XIAO ESP32 C3 Pin Mapping for IoT Sensors
+# XIAO ESP32 C3 pin mapping voor IOT sensors 
 
-## Available Pins on XIAO ESP32 C3
+## beschikbaare pins op de  XIAO ESP32 C3
 
-### Digital Pins
-- **D0** (GPIO0) - Available
-- **D1** (GPIO1) - I2C SCL (used by I2C sensors)
-- **D2** (GPIO2) - HCSR04 Trig
-- **D3** (GPIO3) - HCSR04 Echo
-- **D4** (GPIO4) - GPS RX
-- **D5** (GPIO5) - GPS TX
-- **D6** (GPIO6) - HX711 Data
-- **D10** (GPIO10) - HX711 Clock
+###  Pins
+|Arduino pin|Secundaire functie|
+|-----------|------------------|
+|D0         |A0                |
+|D1         |A1                |
+|D2         |A2                |
+|D3         |~~A3~~            |
+|D4         |SDA               |
+|D5         |SCL               |
+|D6         |TX                |
+|D7         |RX                |
+|D8         |SCK               |
+|D9         |MISO              |
+|D8         |MOSI              |
 
-### Analog Pins
-- **A0** (GPIO0) - MAX4466 Sound Sensor
 
-### I2C Pins (Shared)
-- **D1** (GPIO1) - SCL
-- **D2** (GPIO2) - SDA (conflicts with HCSR04 Trig)
+<img width="1280" height="720" alt="pinout" src="https://github.com/user-attachments/assets/a6064d04-ae5c-48ec-a730-a7bcbca52d6e" />
 
-## Current Sensor Pin Assignments
+#   Sensor pins
+##  HCSR04 afstands sensor Sensor
+- Trig: D2
+- Echo: D3
+## GPS Module
+- RX: D4
+- TX: D5
+## HX711 gewichts sensor
+- Data: D6
+- Clock: D10
 
-### Active Sensors
-1. **HCSR04 Distance Sensor**
-   - Trig: D2
-   - Echo: D3
+## I2C Sensors
+- ADXL345 Accelerometer - D1/D2
+- AM2320 Temperature/Humidity - D1/D2
+## analog sensors 
+- MAX4466 Sound Sensor - A0
+# Gevaren
+- 3V3 sensors
+- **niet aan vbus**
+- wanneer aangesloten laten checken!
 
-2. **GPS Module**
-   - RX: D4
-   - TX: D5
 
-3. **HX711 Weight Sensor**
-   - Data: D6
-   - Clock: D10
-
-### I2C Sensors (can be used simultaneously)
-- **ADXL345 Accelerometer** - Uses I2C (D1/D2)
-- **AM2320 Temperature/Humidity** - Uses I2C (D1/D2)
-- **MAX4466 Sound Sensor** - Uses A0
-
-## Pin Conflicts to Avoid
-
-⚠️ **D2 is used by both HCSR04 Trig and I2C SDA**
-- Solution: Use external I2C multiplexer or choose different sensors
-
-## Available Pins for Future Sensors
-- **D0** - Available for digital sensors
-- **A0** - Available for analog sensors (when MAX4466 not used)
-
-## Recommendations
-
-1. **For I2C sensors**: Use I2C multiplexer if you need multiple I2C sensors
-2. **For digital sensors**: Use D0 for additional digital sensors
-3. **For analog sensors**: A0 is available when MAX4466 is not used
-4. **GPS**: Consider using hardware UART if available for better performance
-
-## Troubleshooting
-
-- If I2C sensors don't work, check if HCSR04 is using D2
-- If GPS doesn't work, verify D4/D5 connections
-- If distance sensor doesn't work, check D2/D3 connections 
