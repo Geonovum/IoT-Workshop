@@ -86,11 +86,11 @@ void loop()
   // Calculate distance to Amersfoort in kilometers
   unsigned long distanceKmToAmersfoort =
     (unsigned long)TinyGPSPlus::distanceBetween(
-      gps.location.lat(),
-      gps.location.lng(),
+      gnss.location.lat(),
+      gnss.location.lng(),
       AMERSFOORT_LAT, 
       AMERSFOORT_LON) / 1000;
-  printInt(distanceKmToAmersfoort, gps.location.isValid(), 9);
+  printInt(distanceKmToAmersfoort, gnss.location.isValid(), 9);
 
   // Calculate course (bearing) to Amersfoort
   double courseToAmersfoort =

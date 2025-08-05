@@ -30,7 +30,7 @@ void setupWiFi() {
   // Non-blocking WiFi connection
   wifiStartTime = millis();
   WiFi.begin(SECRET_SSID, SECRET_PASS);
-  Serial.print("[Wifi] Attempting to connect to WiFi ");
+  Serial.print("[Wifi] Attempting to connect to SSID: ");
   Serial.println(SECRET_SSID);
 }
 

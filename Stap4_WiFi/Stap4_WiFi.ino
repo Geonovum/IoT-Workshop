@@ -5,6 +5,8 @@ void setup() {
   Serial.begin(115200);
   while (!Serial) {}
 
+  Serial.println("[SYS ] Booting..."); 
+
   // Set GPIO0 Boot button as input
   pinMode(0, INPUT);
 
@@ -42,29 +44,29 @@ void setup() {
         Serial.println("[WiFi] Scan is completed");
         break;
       case WL_DISCONNECTED:
-        Serial.println("[WiFi] WiFi is disconnected");
+        Serial.println("[WiFi] Disconnected");
         break;
       case WL_CONNECTED:
-        Serial.println("[WiFi] WiFi is connected!");
+        Serial.println("[WiFi] Connected!");
         Serial.print("[WiFi] IP address: ");
         Serial.println(WiFi.localIP());
         return;
         break;
       case WL_IDLE_STATUS:
-        Serial.println("[WiFi] WiFi is in idle state");
+        Serial.println("[WiFi] Idle state");
         break;
       case WL_NO_SHIELD:
         Serial.println("[WiFi] No WiFi shield is present");
         break;
       default:
-        Serial.print("[WiFi] WiFi Status: ");
+        Serial.print("[WiFi] Status: ");
         Serial.println(WiFi.status());
         break;
     }
     delay(tryDelay);
 
     if (numberOfTries <= 0) {
-      Serial.println("[WiFi] Failed to connect to WiFi!");
+      Serial.println("[WiFi] Failed to connect");
       // Use disconnect function to force stop trying to connect
       WiFi.disconnect();
       return;
