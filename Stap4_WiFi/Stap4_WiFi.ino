@@ -1,11 +1,14 @@
 #include <WiFi.h>
-#include "helper.h"
+
+#include "helpers/mac.h"
+#include "helpers/arduino_secrets.h"
 
 void setup() {
   Serial.begin(115200);
   while (!Serial) {}
+  delay(50);
 
-  Serial.println("[SYS ] Booting..."); 
+  Serial.println("[SYS ] Booting...");
 
   // Set GPIO0 Boot button as input
   pinMode(0, INPUT);

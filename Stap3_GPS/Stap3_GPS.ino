@@ -15,7 +15,7 @@
  */
 
 #include <TinyGPSPlus.h>
-#include "helper.h"
+#include "helpers/mac.h"
 
 // GPS Module Pin Configuration
 #define RXPin D7          // GPS module TX connects to ESP32 D7 (RX)
@@ -36,9 +36,9 @@ void setup()
 {
   // Initialize serial communication for debugging
   Serial.begin(115200);
-  while(!Serial) {
-    // Wait for serial connection (useful for USB debugging)
-  }
+  while(!Serial) {}
+  delay(50);
+
   Serial.println(F("GNSS Module Test Starting..."));
   Serial.println(F("================================"));
 
