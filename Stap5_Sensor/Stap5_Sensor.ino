@@ -28,12 +28,20 @@ void transmitValue(float value);
  * Uncomment the sensor you want to use. Only one sensor can be active at a time
  * due to pin conflicts and I2C address conflicts.
  */
-//#include "ADXL345.h" // 3-axis Accelerometer (I2C - conflicts with HCSR04)
-//#include "HCSR04.h"  // Ultrasonic distance sensor (D2/D3 pins)
-//#include "AM2320.h"  // Temperature & humidity sensor (I2C - conflicts with HCSR04)
-#include "MAX4466.h" // Microphone/sound sensor (A0 pin - no conflicts)
-//#include "HMC5883.h" // 3-Axis Compass Magnetometer (I2C - conflicts with HCSR04)
-//#include "HX711.h"   // Weight/load cell sensor (D6/D10 pins - no conflicts)
+//#include "ADXL345.h" 
+//#include "AHT21B.h"  
+//#include "BME280.h"  
+//#include "HMC5883L.h" 
+//#include "HW390.h"   
+//#include "HX711.h"   
+//#include "MAT060.h"   
+#include "MAX4466.h"   
+//#include "MAX30102.h"   
+//#include "MB090.h"  
+//#include "RCWL1604.h"  
+//#include "SEN0564.h"  
+//#include "TCS3200.h"  
+//#include "TTP223B.h"   
 
 /**
  * Setup function - runs once at startup
