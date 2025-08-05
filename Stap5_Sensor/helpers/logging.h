@@ -4,6 +4,7 @@ void setupLogging()
 {
   Serial.begin(115200);
   while (!Serial);
+  delay(50);
 
-  Serial.println("Booting...");
+  Serial.println("[SYS ] Booting...");
 }

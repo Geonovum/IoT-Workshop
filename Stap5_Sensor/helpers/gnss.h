@@ -19,9 +19,9 @@ bool gnssTimeoutReported = false;
 
 void setupGNSS()
 {
-  Serial.println("[GNSS] initializing...");
+  Serial.println("[GNSS] Initializing...");
   SERIALGNSS.begin(GNSSBaud, SERIAL_8N1, RXPin, TXPin);
-  Serial.println("[GNSS] initialized");
+  Serial.println("[GNSS] Initialized");
 }
 
 void loopGNSS()
@@ -32,8 +32,8 @@ void loopGNSS()
       if (gnss.location.isUpdated()) {
         lat = gnss.location.lat();
         lng = gnss.location.lng();
-        lastGPSUpdate = millis();
-        gpsTimeoutReported = false; // Reset timeout flag
+        lastGNSSUpdate = millis();
+        gnssTimeoutReported = false; // Reset timeout flag
         
         Serial.printf("[GNSS] Lat=%.6f, Lng=%.6f\n", lat, lng);
       }

@@ -21,16 +21,17 @@ String mac2String(byte ar[]) {
 
 void setupWiFi() {
 
-    Serial.println("[WiFi] initializing");
+    Serial.println(F("[WiFi] Initializing..."));
 
   uint64_t chipid = ESP.getEfuseMac();  //The chip ID is essentially its MAC address(length: 6 bytes).
-  Serial.print("[Eth] MAC address: ");
+  Serial.print("[Eth ] MAC address: ");
   Serial.println(mac2String((byte *)&chipid));
 
   // Non-blocking WiFi connection
   wifiStartTime = millis();
   WiFi.begin(SECRET_SSID, SECRET_PASS);
-  Serial.println("[Wifi] Attempting to connect to WiFi...");
+  Serial.print("[Wifi] Attempting to connect to WiFi ");
+  Serial.println(SECRET_SSID);
 }
 
 void loopWifi() {

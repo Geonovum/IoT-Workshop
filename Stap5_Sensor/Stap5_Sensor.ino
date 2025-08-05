@@ -43,11 +43,11 @@ void setup()
 {
   // Initialize system components
   setupLogging();    // Start serial communication at 115200 baud
-  setupGPS();        // Initialize GPS module on pins D4/D5
+  setupGNSS();        // Initialize GPS module on pins D4/D5
   setupSensor();     // Initialize the selected sensor
   setupWiFi();       // Start WiFi connection process
 
-  Serial.println("Booted");  // Confirm successful boot
+  Serial.println("[SYS ] Booted");  // Confirm successful boot
 }
 
 /**
@@ -63,7 +63,7 @@ void transmitValue(float value)
 {
   if (WiFi.status() == WL_CONNECTED) {
     // WiFi is connected - ready to transmit data
- //   Serial.printf("Transmitting: %.2f\n", value);
+ //   Serial.printf("Value: %.2f\n", value);
     
     // TODO: Add your data transmission code here
     // Example implementations:
@@ -78,7 +78,7 @@ void transmitValue(float value)
 }
 
 /**
- * Main loop function - runs continuously
+ * Main loop function - runs forever
  * 
  * This function implements a non-blocking architecture where each
  * component (WiFi, GPS, sensor) is checked and updated independently.
@@ -90,7 +90,7 @@ void loop()
   loopWifi();
   
   // Read and process GPS data
-  loopGPS();
+  loopGNSS();
   
   // Read sensor data and transmit if valid
   loopSensor();
