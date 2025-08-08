@@ -39,7 +39,7 @@ void transmitValue(float value);
 //#include "MAX30102.h"
 //#include "MB090.h"
 //#include "RCWL1604.h"  // Distance measurement ✅
-//#include "SEN0564.h"
+//#include "SEN0564.h" // CO measurement ✅
 //#include "TCS3200.h"
 //#include "TTP223B.h"
 
