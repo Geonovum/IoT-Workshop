@@ -29,17 +29,17 @@ void transmitValue(float value, char* UoM);
  * due to pin conflicts and I2C address conflicts.
  */
 //#include "ADXL345.h"
-//#include "AHT21B.h" // Measure temperature and humudity ✅
+//#include "AHT21B.h"    // Measure temperature and humudity ✅
 //#include "BME280.h"
 //#include "HMC5883L.h"
-//#include "HW390.h" // Measure Soil Moisture ✅
+//#include "HW390.h"     // Measure Soil Moisture ✅
 //#include "HX711.h"
 //#include "MAT060.h"    // Sliding potentiometer ✅
 //#include "MAX4466.h"   // Microphone applifier, clap detector ✅
 //#include "MAX30102.h"
 //#include "MB090.h"
 //#include "RCWL1604.h"  // Distance measurement ✅
-//#include "SEN0564.h" // CO measurement ✅
+//#include "SEN0564.h"   // CO measurement ✅
 //#include "TCS3200.h"
 //#include "TTP223B.h"
 
