@@ -12,8 +12,6 @@
 //       |o  |       SCL          GREEN           D5
 //       +---+
 
-#include <Wire.h>
-#include <Adafruit_Sensor.h>
 #include <Adafruit_ADXL345_U.h>
 
 Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified(12345);

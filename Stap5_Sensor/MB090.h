@@ -4,6 +4,7 @@
 // 3.3V --- Alpha MB090 bending sensor --- Analog pin (e.g. GPIO3) --- 10kΩ resistor --- GND
 
 const uint8_t measurePin = A0; // analoge uitgang van versterkt microfoon signaal
+
 const float vcc = 3.3f; // VCC
 
 void setupSensor() {

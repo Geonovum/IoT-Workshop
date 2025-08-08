@@ -1,11 +1,14 @@
 // ASAIR AHT21B Temperatuur- en Luchtvochtigheidssensor Module - I2C
 
-// PINS:
-// On the AHT21B
-// - VCC
-// - SDA
-// - GND
-// - SCL
+//  AHT21B PIN layout      
+//  ==================================================
+//   top view  DESCRIPTION     COLOR
+//       +---+
+//       |o  |       VCC          RED
+//       |o  |       SDA          BLACK
+//       |o  |       GND
+//       |o  |       SCL
+//       +---+
 
 // Library: Adafruit AHTX0 
 #include <Adafruit_AHTX0.h>

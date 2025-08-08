@@ -1,4 +1,5 @@
 // Updated pin definitions for XIAO ESP32 C3
+
 const uint8_t trigPin = D2;  // Changed from D8
 const uint8_t echoPin = D3;  // Changed from D7
 

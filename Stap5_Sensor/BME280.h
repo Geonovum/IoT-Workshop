@@ -1,3 +1,15 @@
+//  BME280 PIN layout      
+//  ==================================================
+//   top view  DESCRIPTION     COLOR
+//       +---+
+//       |o  |       VCC          RED
+//       |o  |       GND          BLACK
+//       |o  |       SCL
+//       |o  |       SDA
+//       |o  |       CSB
+//       |o  |       SDO
+//       +---+
+
 #include <Adafruit_BME280.h>
 
 #define SEALEVELPRESSURE_HPA (1013.25)
