@@ -34,7 +34,6 @@ void setupSensor() {
 }
 
 void loopSensor() {
-  return;
   delay(100);
   
   sensors_event_t event; 
