@@ -1,7 +1,7 @@
 const int potPin = A0;  //pin A0 to read analog input
 
 void setupSensor() {
-  pinMode(potPin, INPUT);  //Optional
+  pinMode(potPin, INPUT); 
 }
 
 void loopSensor() {
