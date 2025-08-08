@@ -34,11 +34,11 @@ void transmitValue(float value);
 //#include "HMC5883L.h"
 //#include "HW390.h"
 //#include "HX711.h"
-//#include "MAT060.h"    // Sliding potentiometer
-//#include "MAX4466.h"   // Microphone applifier, clap detector
+//#include "MAT060.h"    // Sliding potentiometer ✅
+//#include "MAX4466.h"   // Microphone applifier, clap detector ✅
 //#include "MAX30102.h"
 //#include "MB090.h"
-//#include "RCWL1604.h"  // Distance measurement
+//#include "RCWL1604.h"  // Distance measurement ✅
 //#include "SEN0564.h"
 //#include "TCS3200.h"
 //#include "TTP223B.h"
