@@ -41,6 +41,6 @@ void loopSensor() {
   }
   peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude
  // Serial.println(peakToPeak);
-  transmitValue(peakToPeak);
+  transmitValue(peakToPeak, "Clap!");
 
 }

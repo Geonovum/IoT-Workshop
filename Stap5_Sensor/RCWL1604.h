@@ -47,7 +47,7 @@ void loopSensor() {
     if (distance >= 2.0 && distance <= 400.0) {
       distanceSensorError = false;
       Serial.printf("[RCWL1604] Distance: %.1f cm\n", distance);
-      transmitValue(distance);
+      transmitValue(distance, "cm");
     } else {
       if (!distanceSensorError) {
         Serial.printf("[RCWL1604] Invalid distance reading: %.1f cm\n", distance);

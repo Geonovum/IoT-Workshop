@@ -1,16 +1,17 @@
-const uint8_t soundPin = A0; // analoge uitgang van versterkt microfoon signaal
+const int MOISTURE_ANALOGIC_IN = A0;                                       // Arduino's analogic pin
+
+const int DRY = 3688;  // TODO: This is value when soil is dry. Adjust according to your usecase
+const int WET = 560;   // TODO: This is value when soil is wet. Adjust according to your usecase
 
 void setupSensor() {
-  // A0 for analog in
+  pinMode(MOISTURE_ANALOGIC_IN, INPUT); 
 }
 
 void loopSensor() {
-  delay(100);
-  
-  auto value = analogRead(soundPin);         //Read and save analog value from potentiometer
+  delay(3000);
 
- // Serial.print("level: ");
- // Serial.println(value);
+  int moistureAnalogicVal = analogRead(MOISTURE_ANALOGIC_IN);  // Read the analogic data and convert it to [0, 4095]
+  int percentage = map(moistureAnalogicVal, WET, DRY, 100, 0);
 
-  transmitValue(value);
+  transmitValue(percentage, "% rH");
 }

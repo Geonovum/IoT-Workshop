@@ -20,7 +20,7 @@
 #include "helpers/gnss.h"  // GPS location tracking
 
 // Function declaration for data transmission
-void transmitValue(float value);
+void transmitValue(float value, char* UoM);
 
 /*
  * SENSOR CONFIGURATION
@@ -29,10 +29,10 @@ void transmitValue(float value);
  * due to pin conflicts and I2C address conflicts.
  */
 //#include "ADXL345.h"
-//#include "AHT21B.h"
+//#include "AHT21B.h" // Measure temperature and humudity ✅
 //#include "BME280.h"
 //#include "HMC5883L.h"
-//#include "HW390.h"
+//#include "HW390.h" // Measure Soil Moisture ✅
 //#include "HX711.h"
 //#include "MAT060.h"    // Sliding potentiometer ✅
 //#include "MAX4466.h"   // Microphone applifier, clap detector ✅
@@ -66,10 +66,10 @@ void setup() {
  * logs the value, but can be extended to send data via HTTP POST,
  * MQTT, or other protocols.
  */
-void transmitValue(float value) {
+void transmitValue(float value, char* UoM) {
   if (WiFi.status() == WL_CONNECTED) {
     // WiFi is connected - ready to transmit data
-    Serial.printf("Value: %.2f\n", value);
+    Serial.printf("Value: %.2f%s\n", value, UoM);
 
     // TODO: Add your data transmission code here
     // Example implementations:
@@ -79,7 +79,7 @@ void transmitValue(float value) {
     // - Custom TCP/UDP protocol
   } else {
     // WiFi not connected - log the value for debugging
-    Serial.printf("[WiFi] Not connected to Transmit. Value: %.2f\n", value);
+    Serial.printf("[WiFi] Not connected to Transmit. Value: %.2f%s\n", value, UoM);
   }
 }
 

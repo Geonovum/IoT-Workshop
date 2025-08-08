@@ -1,16 +1,33 @@
-const uint8_t soundPin = A0; // analoge uitgang van versterkt microfoon signaal
+// ASAIR AHT21B Temperatuur- en Luchtvochtigheidssensor Module - I2C
+
+// PINS:
+// On the AHT21B
+// - VCC
+// - SDA
+// - GND
+// - SCL
+
+// Library: Adafruit AHTX0 
+#include <Adafruit_AHTX0.h>
+
+Adafruit_AHTX0 aht;
 
 void setupSensor() {
-  // A0 for analog in
+  if (!aht.begin()) {
+    Serial.println("Could not find AHT? Check wiring");
+    while (1) delay(10);
+  }
+  Serial.println("AHT10 or AHT20 found");
 }
 
 void loopSensor() {
   delay(100);
-  
-  auto value = analogRead(soundPin);         //Read and save analog value from potentiometer
 
- // Serial.print("level: ");
- // Serial.println(value);
+  sensors_event_t humidity, temp;
+  aht.getEvent(&humidity, &temp);// populate temp and humidity objects with fresh data
+ // Serial.print("Temperature: "); Serial.print(temp.temperature); Serial.println(" degrees C");
+ // Serial.print("Humidity: "); Serial.print(humidity.relative_humidity); Serial.println("% rH");
 
-  transmitValue(value);
+  transmitValue(temp.temperature, " degrees C");
+  transmitValue(humidity.relative_humidity, "% rH");
 }

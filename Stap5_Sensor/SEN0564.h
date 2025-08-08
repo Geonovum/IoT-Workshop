@@ -19,5 +19,5 @@ void loopSensor() {
  // Serial.print("level: ");
  // Serial.println(value);
 
-  transmitValue(value);
+  transmitValue(value, " CO");
 }
