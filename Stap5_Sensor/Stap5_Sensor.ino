@@ -34,11 +34,11 @@ void transmitValue(float value);
 //#include "HMC5883L.h" 
 //#include "HW390.h"   
 //#include "HX711.h"   
-//#include "MAT060.h"   
+#include "MAT060.h"   
 //#include "MAX4466.h"   
 //#include "MAX30102.h"   
 //#include "MB090.h"  
-#include "RCWL1604.h"  
+//#include "RCWL1604.h"  // checked
 //#include "SEN0564.h"  
 //#include "TCS3200.h"  
 //#include "TTP223B.h"   
@@ -71,7 +71,7 @@ void transmitValue(float value)
 {
   if (WiFi.status() == WL_CONNECTED) {
     // WiFi is connected - ready to transmit data
- //   Serial.printf("Value: %.2f\n", value);
+    Serial.printf("Value: %.2f\n", value);
     
     // TODO: Add your data transmission code here
     // Example implementations:
