@@ -41,7 +41,7 @@ void transmitValue(float value, char* UoM);
 //#include "RCWL1604.h"  // Distance measurement ✅
 //#include "SEN0564.h"   // CO measurement ✅
 //#include "TCS3200.h"
-//#include "TTP223B.h"
+//#include "TTP223B.h" // Capacitive touch ✅
 
 /**
  * Setup function - runs once at startup
