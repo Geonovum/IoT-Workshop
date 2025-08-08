@@ -30,7 +30,7 @@ void transmitValue(float value, char* UoM);
  */
 //#include "ADXL345.h"   // Accelerometer ✅
 //#include "AHT21B.h"    // Measure temperature and humudity ✅
-//#include "BME280.h"
+//#include "BME280.h"    // Measure Thermometer, Barometer en Vochtigheid ✅
 //#include "HMC5883L.h"
 //#include "HW390.h"     // Measure Soil Moisture ✅
 //#include "HX711.h"
