@@ -1,16 +1,38 @@
-const uint8_t soundPin = A0; // analoge uitgang van versterkt microfoon signaal
+#include <TCS3210.h>
+
+
+#define S0_PIN D0
+#define S1_PIN D1
+#define S2_PIN D2
+#define S3_PIN D3
+#define DATA_PIN D4
+#define OE_PIN D5 // pulled LOW by us
+
+// Create an instance of the TCS3200 class
+TCS3210 TCS(S0_PIN, S1_PIN, S2_PIN, S3_PIN, OE_PIN, DATA_PIN);
 
 void setupSensor() {
-  // A0 for analog in
+  Serial.println("[TCS3200] Initializing...]");
+  TCS.begin();
 }
 
 void loopSensor() {
-  delay(100);
-  
-  auto value = analogRead(soundPin);         //Read and save analog value from potentiometer
 
- // Serial.print("level: ");
- // Serial.println(value);
+  TCS.selectNone();
+  Serial.print(TCS.getFrequency());
+  Serial.print("\t");
 
-  transmitValue(value);
+  TCS.selectRed();
+  Serial.print(TCS.getFrequency());
+  Serial.print("\t");
+
+  TCS.selectGreen();
+  Serial.print(TCS.getFrequency());
+  Serial.print("\t");
+
+  TCS.selectBlue();
+  Serial.print(TCS.getFrequency());
+  Serial.print("\n");
+
+  delay (100);
 }
