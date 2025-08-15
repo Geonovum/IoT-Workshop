@@ -12,20 +12,23 @@
  * Date: aug 2025
  */
 
+#include <Arduino_JSON.h>  // from https://github.com/arduino-libraries/Arduino_JSON
+
 // Include helper libraries for different system components
 #include "arduino_secrets.h"  // WiFi credentials and secrets
 
-#include "helpers/logging.h"  // Serial communication and logging setup
-#include "helpers/wifi.h"     // WiFi connection management
-//#include "helpers/dateTime.h"   // Time synchronization (currently disabled)
+#include "helpers/logging.h"   // Serial communication and logging setup
+#include "helpers/wifi.h"      // WiFi connection management
+#include "helpers/ethernet.h"  // WiFi connection management
 #include "helpers/gnss.h"          // GPS location tracking
 #include "helpers/stringFormat.h"  // GPS location tracking
 
 #include <HTTPClient.h>
 
-const uint dataStreamId = 4;
-const String serviceUrl = "http://iot.aardvark.myds.me/FROST-Server";
-String uri;
+const uint datastreamId = 2;
+const String url = formatString("%s/Datastreams(%d)/Observations", serviceHost, datastreamId);
+
+HTTPClient http;
 
 // Function declaration for data transmission
 void transmitValue(float value, char* UoM);
@@ -37,10 +40,10 @@ void transmitValue(float value, char* UoM);
  * due to pin conflicts and I2C address conflicts.
  */
 //#include "ADXL-345.h"   // Accelerometer ✅
-#include "AHT-21B.h"  // Measure temperature and humudity ✅
+//#include "AHT-21B.h"  // Measure temperature and humudity ✅
 //#include "BME-280.h"    // Measure Thermometer, Barometer en Vochtigheid ✅
 //#include "HMC-5883L.h"  // Digital Compass ✅
-//#include "HW-390.h"     // Measure Soil Moisture ✅
+#include "HW-390.h"  // Measure Soil Moisture ✅
 //#include "HX-711.h"     // Weegschaal 🚜
 //#include "MAT-060.h"    // Sliding potentiometer ✅
 //#include "MAX-4466.h"   // Microphone applifier, clap detector ✅
@@ -48,7 +51,7 @@ void transmitValue(float value, char* UoM);
 //#include "MB-090.h"     // Bending Detection (90mm) ❌
 //#include "RCWL-1604.h"  // Distance measurement ✅
 //#include "SEN-0564.h"   // CO measurement ✅
-//#include "TCS-3200.h".  // RGB Kleursensor
+//#include "TCS-3200.h".  // RGB Kleursensor ❌
 //#include "TTP-223B.h"   // Capacitive touch ✅
 
 /**
@@ -63,8 +66,6 @@ void setup() {
   setupWiFi();     // Start WiFi connection process
 
   Serial.println("[SYS ] Booted");  // Confirm successful boot
-
-  uri = formatString("%s/v1.1/Datastreams(%d)/Observations", serviceUrl, dataStreamId);
 }
 
 /**
@@ -82,15 +83,41 @@ void transmitValue(float value, char* UoM) {
     Serial.printf("Value: %.2f%s\n", value, UoM);
 
     // Example implementations:
-    // - HTTP POST 
-    // - MQTT publish 
+    // - HTTP POST
+    // - MQTT publish
 
-    HTTPClient http;
-    http.begin(uri);
+/*
+    JSONVar point;
+    point["type"] = "Point";
+    JSONVar coordinates;
+    coordinates[0] = lat;
+    coordinates[1] = lng;
+    point["coordinates"] = coordinates;
+
+    JSONVar featureOfInterest;
+    featureOfInterest["name"] = "hier"; // TODO
+    featureOfInterest["description"] = "iets meer naar ginder"; // TODO
+    featureOfInterest["encodingType"] = "application/vnd.geo+json";
+    featureOfInterest["feature"] = point;
+*/
+
+    JSONVar observation;
+    //  observation["FeatureOfInterest"] = featureOfInterest;
+    //  observation["phenomenonTime"] = getISO8601dateTime();
+    observation["result"] = value;
+
+    auto body = JSON.stringify(observation);
+
+    Serial.print("HTTP POST to ");
+    Serial.print(url);
+    Serial.print(" with body ");
+    Serial.println(body);
+
+    http.begin(url);
     http.addHeader("Content-Type", "application/json");
-    String body = formatString("{\"result\": %.2f }", value);
-    int httpCode = http.POST(body);
+    auto httpCode = http.POST(body);
     Serial.printf("[HTTP] Result of HTTP POST %d\n", httpCode);
+    http.end();
 
   } else {
     // WiFi not connected - log the value for debugging

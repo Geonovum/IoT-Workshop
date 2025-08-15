@@ -21,7 +21,7 @@ String mac2String(byte ar[]) {
 
 void setupWiFi() {
 
-    Serial.println(F("[WiFi] Initializing..."));
+  Serial.println(F("[WiFi] Initializing..."));
 
   uint64_t chipid = ESP.getEfuseMac();  //The chip ID is essentially its MAC address(length: 6 bytes).
   Serial.print("[Eth ] MAC address: ");
