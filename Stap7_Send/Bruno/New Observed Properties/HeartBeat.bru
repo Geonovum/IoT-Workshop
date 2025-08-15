@@ -1,0 +1,23 @@
+meta {
+  name: HeartBeat
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{Endpoint}}/ObservedProperties
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "HeartBeat",
+    "description": "A heart beat is a single contraction of the heart muscle",
+    "definition": "https://qudt.org/vocab/unit/HeartBeat"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

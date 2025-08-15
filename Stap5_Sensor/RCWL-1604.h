@@ -1,7 +1,7 @@
 // Updated pin definitions for XIAO ESP32 C3
 
-const uint8_t trigPin = D2;  // Changed from D8
-const uint8_t echoPin = D3;  // Changed from D7
+const uint8_t trigPin = D2;
+const uint8_t echoPin = D3;
 
 float distance = -1.0f;
 unsigned long lastDistanceUpdate = 0;

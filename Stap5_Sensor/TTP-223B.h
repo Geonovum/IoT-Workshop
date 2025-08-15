@@ -8,7 +8,7 @@
 
 #include <TouchSensorLib.h>
 
-TouchSensor touch(D2);  // Connect TTP223 OUT to D4
+TouchSensor touch(D2);  // Connect TTP223 OUT to D2
 
 void setupSensor() {
   touch.setDebounceTime(20);

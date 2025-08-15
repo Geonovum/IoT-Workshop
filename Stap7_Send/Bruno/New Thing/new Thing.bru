@@ -1,0 +1,36 @@
+meta {
+  name: new Thing
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{Endpoint}}/Things
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Temperature Monitoring System",
+    "description": "Sensor system monitoring area temperature",
+    "properties": {
+      "Deployment Condition": "Deployed in a third floor balcony",
+      "Case Used": "Radiation shield"
+    },
+    "Locations": [
+      {
+        "name": "UofC CCIT",
+        "description": "University of Calgary, CCIT building",
+        "encodingType": "application/vnd.geo+json",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            -114.133,
+            51.08
+          ]
+        }
+      }
+    ]
+  }
+}

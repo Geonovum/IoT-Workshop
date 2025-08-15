@@ -1,0 +1,26 @@
+meta {
+  name: new FeaturesOfInterest
+  type: http
+  seq: 13
+}
+
+post {
+  url: {{Endpoint}}/FeaturesOfInterest
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "UofC CCIT",
+    "description": "University of Calgary, CCIT building",
+    "encodingType": "application/vnd.geo+json",
+    "feature": {
+      "type": "Point",
+      "coordinates": [
+        -114.133,
+        51.08
+      ]
+    }
+  }
+}

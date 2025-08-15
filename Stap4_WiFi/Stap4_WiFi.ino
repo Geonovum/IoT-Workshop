@@ -1,7 +1,7 @@
 #include <WiFi.h>
 
+#include "arduino_secrets.h"
 #include "helpers/mac.h"
-#include "helpers/arduino_secrets.h"
 
 void setup() {
   Serial.begin(115200);

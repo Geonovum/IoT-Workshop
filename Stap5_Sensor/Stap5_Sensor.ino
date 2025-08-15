@@ -12,9 +12,9 @@
  * Date: aug 2025
  */
 
+#include "arduino_secrets.h"  // WiFi credentials and secrets
 // Include helper libraries for different system components
 #include "helpers/logging.h"          // Serial communication and logging setup
-#include "helpers/arduino_secrets.h"  // WiFi credentials and secrets
 #include "helpers/wifi.h"             // WiFi connection management
 //#include "helpers/dateTime.h"   // Time synchronization (currently disabled)
 #include "helpers/gnss.h"  // GPS location tracking

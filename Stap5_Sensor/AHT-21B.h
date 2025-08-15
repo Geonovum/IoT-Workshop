@@ -34,3 +34,4 @@ void loopSensor() {
   transmitValue(temp.temperature, " degrees C");
   transmitValue(humidity.relative_humidity, "% rH");
 }
+

@@ -4,8 +4,8 @@
 //       +---+
 //       |o  |       VCC          RED
 //       |o  |       GND          BLACK
-//       |o  |       SCL
-//       |o  |       SDA
+//       |o  |       SCL          GREEN
+//       |o  |       SDA          YELLOW
 //       |o  |       DRDY
 //       +---+
 

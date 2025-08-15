@@ -3,13 +3,13 @@
 //   top view  DESCRIPTION     COLOR
 //       +---+
 //       |o  |       VCC        RED
-//       |o  |       SDA
-//       |o  |       SDL
+//       |o  |       SDA        YELLOW
+//       |o  |       SDL        GREEN
 //       |o  |       GND        Black
 //       +---+
 //
 //       +---+
-//       |o  |       GND
+//       |o  |       GND        Black
 //       |o  |       RD
 //       |o  |       IRD
 //       |o  |       INT
