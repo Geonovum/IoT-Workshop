@@ -9,6 +9,18 @@
 //       |o  |       CSB          
 //       |o  |       SDO
 //       +---+
+//
+// Observed Properties:
+// - temperature
+// - pressure
+// - altitude
+// - humidity
+//
+// Unit of Measure:
+// - degress C
+// - hPa
+// - m
+// - % rH
 
 #include <Adafruit_BME280.h>
 
@@ -46,7 +58,7 @@ void loopSensor() {
   Serial.print(bme.readAltitude(SEALEVELPRESSURE_HPA));
   Serial.println(" m");
 
-  Serial.print("[BMP180] Humidity = ");
+  Serial.print("[BMP180] RelativeHumidity = ");
   Serial.print(bme.readHumidity());
   Serial.println(" % rH");
 

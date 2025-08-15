@@ -1,3 +1,16 @@
+//  MAX-4466 PIN layout
+//  ==================================================
+//   top view  DESCRIPTION     COLOR
+//       +---+
+//       |o  |       GND         BLACK
+//       +---+
+//
+// Observed Properties:
+// - ???
+//
+// Unit of Measure:
+// - ???
+
 // https://cdn-shop.adafruit.com/datasheets/MAX4465-MAX4469.pdf
 
 // A0 is the analog output pin that delivers the amplified sound signal. 

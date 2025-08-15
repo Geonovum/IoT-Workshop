@@ -14,6 +14,14 @@
 //       |o  |       IRD
 //       |o  |       INT
 //       +---+
+//
+// Observed Properties:
+// - HeartRate
+// - Sp02
+//
+// Unit of Measure:
+// - bpm
+// - %
 
 #include "MAX30102_PulseOximeter.h"
 

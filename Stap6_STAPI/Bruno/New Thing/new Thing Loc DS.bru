@@ -1,0 +1,42 @@
+meta {
+  name: new Thing Loc DS
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{Endpoint}}/Things
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "xx:xx:xx",
+    "description": "XIAO ESP32 C3",
+    "properties": {},
+    "Locations": [
+      {
+        "@iot.id": 4
+      }
+    ],
+    "Datastreams": [
+      {
+        "name": "Air Temperature DS",
+        "description": "Datastream for recording temperature",
+        "observationType": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
+        "unitOfMeasurement": {
+          "name": "Degree Celsius",
+          "symbol": "°C",
+          "definition": "https://qudt.org/vocab/unit/DEG_C"
+        },
+        "ObservedProperty": {
+          "@iot.id": 5
+        },
+        "Sensor": {
+          "@iot.id": 15
+        }
+      }
+    ]
+  }
+}

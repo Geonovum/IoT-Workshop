@@ -1,5 +1,19 @@
-#include <TCS3210.h>
+//  RCWL-1604 PIN layout  (left to right)
+//  ==================================================
+//   top view  DESCRIPTION     COLOR
+//       +---+
+//       |o  |       GND        Black
+//       |o  |           
+//       |o  |       VCC        RED
+//       +---+
+////
+// Observed Properties:
+// - Color
+//
+// Unit of Measure:
+// - ???
 
+#include <TCS3210.h>
 
 #define S0_PIN D0
 #define S1_PIN D1

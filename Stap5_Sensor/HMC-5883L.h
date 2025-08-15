@@ -8,6 +8,12 @@
 //       |o  |       SDA          YELLOW
 //       |o  |       DRDY
 //       +---+
+//
+// Observed Properties:
+// - magnetic
+//
+// Unit of Measure:
+// - uT
 
 #include <Adafruit_HMC5883_U.h>
 
@@ -43,7 +49,6 @@ void loopSensor() {
   Serial.print("[HMC5883L] X: "); Serial.print(event.magnetic.x); Serial.print("  ");
   Serial.print("Y: "); Serial.print(event.magnetic.y); Serial.print("  ");
   Serial.print("Z: "); Serial.print(event.magnetic.z); Serial.print("  ");Serial.println("uT");
-
 
   // Hold the module so that Z is pointing 'up' and you can measure the heading with x&y
   // Calculate heading when the magnetometer is level, then correct for signs of axis.

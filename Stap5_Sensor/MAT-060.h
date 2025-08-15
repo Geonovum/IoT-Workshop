@@ -1,3 +1,16 @@
+//  MAT-060 PIN layout
+//  ==================================================
+//   top view  DESCRIPTION     COLOR
+//       +---+
+//       |o  |       GND         BLACK
+//       +---+
+//
+// Observed Properties:
+// - ???
+//
+// Unit of Measure:
+// - ???
+
 const int potPin = A0;  //pin A0 to read analog input
 
 void setupSensor() {

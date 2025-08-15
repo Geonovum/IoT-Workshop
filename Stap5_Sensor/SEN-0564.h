@@ -1,4 +1,19 @@
-// The sensor can measure carbon monoxide gas concentration qualitatively and 
+//  RCWL-1604 PIN layout  (left to right)
+//  ==================================================
+//   top view  DESCRIPTION     COLOR
+//       +---+
+//       |o  |       GND        Black
+//       |o  |           
+//       |o  |       VCC        RED
+//       +---+
+////
+// Observed Properties:
+// - carbon monoxide gas concentration
+//
+// Unit of Measure:
+// - ???
+
+// // The sensor can measure carbon monoxide gas concentration qualitatively and 
 // is suitable for carbon monoxide leak alarm and portable carbon monoxide detector.
 
 // NOTE: The module needs to be warmed up for more than 5 minutes when powered on for the 

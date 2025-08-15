@@ -11,6 +11,12 @@
 //       |o  |       SDA          YELLOW          D4
 //       |o  |       SCL          GREEN           D5
 //       +---+
+//
+// Observed Properties:
+// - acceleration
+//
+// Unit of Measure:
+// - m/s^2
 
 #include <Adafruit_ADXL345_U.h>
 

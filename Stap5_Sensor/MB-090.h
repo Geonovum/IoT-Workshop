@@ -1,3 +1,16 @@
+//  MB-090 PIN layout  (left to right)
+//  ==================================================
+//   top view  DESCRIPTION     COLOR
+//       +---+
+//       |o  |       GND        Black
+//       +---+
+////
+// Observed Properties:
+// - bending angle
+//
+// Unit of Measure:
+// - bpm
+
 // Resistance (Kohm) will increase when bending angle increases
 
 // Note: do not forget the 10Kohm resistor

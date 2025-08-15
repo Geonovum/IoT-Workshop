@@ -5,7 +5,11 @@ meta {
 }
 
 get {
-  url: {{Endpoint}}/Sensors
+  url: {{Endpoint}}/Sensors?$select=@iot.id,name
   body: none
   auth: inherit
+}
+
+params:query {
+  $select: @iot.id,name
 }

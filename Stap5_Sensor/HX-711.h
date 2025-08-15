@@ -7,6 +7,12 @@
 //       |o  |       SCK         GRAY
 //       |o  |       VCC.        RED
 //       +---+
+//
+// Observed Properties:
+// - weight
+//
+// Unit of Measure:
+// - g
 
 #include <HX711.h>
 

@@ -9,6 +9,14 @@
 //       |o  |       GND
 //       |o  |       SCL
 //       +---+
+// Observed Properties:
+// - temperature
+// - humidity
+//
+// Unit of Measure:
+// - degress C
+// - % rH
+
 
 // Library: Adafruit AHTX0 
 #include <Adafruit_AHTX0.h>

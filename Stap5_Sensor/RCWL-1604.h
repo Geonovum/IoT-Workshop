@@ -1,4 +1,18 @@
-// Updated pin definitions for XIAO ESP32 C3
+//  RCWL-1604 PIN layout  (left to right)
+//  ==================================================
+//   top view  DESCRIPTION     COLOR
+//       +---+
+//       |o  |       GND        Black
+//       |o  |       Echo       
+//       |o  |       Trigger    
+//       |o  |       VCC        RED
+//       +---+
+////
+// Observed Properties:
+// - distance
+//
+// Unit of Measure:
+// - cm
 
 const uint8_t trigPin = D2;
 const uint8_t echoPin = D3;

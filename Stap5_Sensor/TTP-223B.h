@@ -1,3 +1,18 @@
+//  Touch  (left to right)
+//  ==================================================
+//   top view  DESCRIPTION     COLOR
+//       +---+
+//       |o  |       GND        Black
+//       |o  |           
+//       |o  |       VCC        RED
+//       +---+
+////
+// Observed Properties:
+// - Touch
+//
+// Unit of Measure:
+// - ???
+
 // A=0,B=0 --> Functioneert als Reset knop met hoge output (standaard)
 // A=0,B=1 --> Functioneert als Aan/uit knop met hoge output
 // A=1,B=0 --> Functioneert als Reset knop met lage output

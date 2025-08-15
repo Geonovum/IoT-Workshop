@@ -15,10 +15,17 @@
 // Include helper libraries for different system components
 #include "arduino_secrets.h"  // WiFi credentials and secrets
 
-#include "helpers/logging.h"          // Serial communication and logging setup
-#include "helpers/wifi.h"             // WiFi connection management
+#include "helpers/logging.h"  // Serial communication and logging setup
+#include "helpers/wifi.h"     // WiFi connection management
 //#include "helpers/dateTime.h"   // Time synchronization (currently disabled)
-#include "helpers/gnss.h"  // GPS location tracking
+#include "helpers/gnss.h"          // GPS location tracking
+#include "helpers/stringFormat.h"  // GPS location tracking
+
+#include <HTTPClient.h>
+
+const uint dataStreamId = 4;
+const String serviceUrl = "http://iot.aardvark.myds.me/FROST-Server";
+String uri;
 
 // Function declaration for data transmission
 void transmitValue(float value, char* UoM);
@@ -30,7 +37,7 @@ void transmitValue(float value, char* UoM);
  * due to pin conflicts and I2C address conflicts.
  */
 //#include "ADXL-345.h"   // Accelerometer ✅
-//#include "AHT-21B.h"    // Measure temperature and humudity ✅
+#include "AHT-21B.h"  // Measure temperature and humudity ✅
 //#include "BME-280.h"    // Measure Thermometer, Barometer en Vochtigheid ✅
 //#include "HMC-5883L.h"  // Digital Compass ✅
 //#include "HW-390.h"     // Measure Soil Moisture ✅
@@ -41,7 +48,7 @@ void transmitValue(float value, char* UoM);
 //#include "MB-090.h"     // Bending Detection (90mm) ❌
 //#include "RCWL-1604.h"  // Distance measurement ✅
 //#include "SEN-0564.h"   // CO measurement ✅
-#include "TCS-3200.h".  // RGB Kleursensor
+//#include "TCS-3200.h".  // RGB Kleursensor
 //#include "TTP-223B.h"   // Capacitive touch ✅
 
 /**
@@ -56,6 +63,8 @@ void setup() {
   setupWiFi();     // Start WiFi connection process
 
   Serial.println("[SYS ] Booted");  // Confirm successful boot
+
+  uri = formatString("%s/v1.1/Datastreams(%d)/Observations", serviceUrl, dataStreamId);
 }
 
 /**
@@ -72,12 +81,17 @@ void transmitValue(float value, char* UoM) {
     // WiFi is connected - ready to transmit data
     Serial.printf("Value: %.2f%s\n", value, UoM);
 
-    // TODO: Add your data transmission code here
     // Example implementations:
-    // - HTTP POST to a web server
-    // - MQTT publish to a broker
-    // - WebSocket connection
-    // - Custom TCP/UDP protocol
+    // - HTTP POST 
+    // - MQTT publish 
+
+    HTTPClient http;
+    http.begin(uri);
+    http.addHeader("Content-Type", "application/json");
+    String body = formatString("{\"result\": %.2f }", value);
+    int httpCode = http.POST(body);
+    Serial.printf("[HTTP] Result of HTTP POST %d\n", httpCode);
+
   } else {
     // WiFi not connected - log the value for debugging
     Serial.printf("[WiFi] Not connected to Transmit. Value: %.2f%s\n", value, UoM);
