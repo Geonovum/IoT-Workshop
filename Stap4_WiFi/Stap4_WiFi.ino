@@ -1,6 +1,7 @@
 #include <WiFi.h>
 
 #include "../arduino_secrets.h"
+
 #include "../helpers/logging.h"
 #include "../helpers/mac.h"
 
@@ -47,7 +48,8 @@ void setup() {
         Serial.println("[WiFi] Disconnected");
         break;
       case WL_CONNECTED:
-        Serial.println("[WiFi] Connected!");
+        Serial.print("[WiFi] Connected to ");
+        Serial.println(SECRET_SSID);
         Serial.print("[WiFi] IP address: ");
         Serial.println(WiFi.localIP());
         return;

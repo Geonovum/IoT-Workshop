@@ -24,7 +24,8 @@
 
 #include <HTTPClient.h> // ships with ESP32 library, no extra lib needed
 
-const char* serviceHost = "http://iot.aardvark.myds.me/FROST-Server/v1.1";
+const char* serviceHost = "http://iot.aardvark.myds.me/FROST-Server";
+const char* serviceVersion = "v1.1";
 
 HTTPClient http;
 
@@ -104,7 +105,7 @@ void transmitValue(float value, char* UoM, uint datastreamId) {
     //  observation["phenomenonTime"] = getISO8601dateTime();
     observation["result"] = value;
 
-    const String url = formatString("%s/Datastreams(%d)/Observations", serviceHost, datastreamId);
+    const String url = formatString("%s/%s/Datastreams(%d)/Observations", serviceHost, serviceVersion, datastreamId);
     auto body = JSON.stringify(observation);
 
     Serial.print("HTTP POST to ");
