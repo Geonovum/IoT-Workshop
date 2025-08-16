@@ -1,5 +1,5 @@
 /*
- * IoT Sensor Project - Step 5: Sensor Data Collection
+ * IoT Sensor Project - Step 7: Sensor Data Collection
  * 
  * This Arduino sketch implements a comprehensive IoT sensor system that:
  * - Connects to WiFi for data transmission
