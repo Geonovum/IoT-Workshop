@@ -34,5 +34,7 @@ void loopSensor() {
   Serial.print(TCS.getFrequency());
   Serial.print("\n");
 
+      const static uint datastreamId = x;
+
   delay (100);
 }

@@ -29,6 +29,7 @@ void loopSensor() {
   Serial.print(" - Voltage: ");
   Serial.println(voltage, 3);
 
+    const static uint datastreamId = x;
 
-//  transmitValue(value);
+//  transmitValue(value, "", datastreamId);
 }

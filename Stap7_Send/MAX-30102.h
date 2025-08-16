@@ -59,7 +59,11 @@ void loopSensor() {
     Serial.print(pox.getSpO2());
     Serial.print("%");
 
-    //transmitValue(value);
+    const static uint datastreamIdHeartRate = x;
+    const static uint datastreamIdSp02 = x;
+
+    //transmitValue(value, "", datastreamIdHeartRate);
+    //transmitValue(value, "", datastreamIdSp02);
 
     // if (irValue < 70)
     // Serial.print(",  No finger?");

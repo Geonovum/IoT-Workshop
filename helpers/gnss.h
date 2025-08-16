@@ -1,3 +1,57 @@
+#pragma once
+
+#include <TinyGPSPlus.h> // https://github.com/mikalhart/TinyGPSPlus
+
+// Reference coordinates for Amersfoort, Netherlands
+static const double AMERSFOORT_LAT = 52.1561113;
+static const double AMERSFOORT_LON = 5.3878266;
+
+// Updated pin definitions for XIAO ESP32 C3
+#define RXPin D7          // GPS module TX connects to ESP32 D7 (RX)
+#define TXPin D6          // GPS module RX connects to ESP32 D6 (TX) - optional
+const uint32_t GNSSBaud = 9600;
+
+#define SERIALGNSS Serial1
+
+double lat;
+double lng;
+
+TinyGPSPlus gnss;
+
+// GPS timeout variables
+unsigned long lastGNSSUpdate = 0;    // Timestamp of last GPS data update
+bool gnssTimeoutReported = false;
+
+void setupGNSS()
+{
+  Serial.println("[GNSS] Initializing...");
+  SERIALGNSS.begin(GNSSBaud, SERIAL_8N1, RXPin, TXPin);
+  Serial.println("[GNSS] Initialized");
+}
+
+void loopGNSS()
+{
+  while (SERIALGNSS.available() > 0) {
+    if (gnss.encode(SERIALGNSS.read())) {
+      // GPS data was successfully parsed
+      if (gnss.location.isUpdated()) {
+        lat = gnss.location.lat();
+        lng = gnss.location.lng();
+        lastGNSSUpdate = millis();
+        gnssTimeoutReported = false; // Reset timeout flag
+        
+        Serial.printf("[GNSS] Lat=%.6f, Lng=%.6f\n", lat, lng);
+      }
+    }
+  }
+  
+  // Check for GPS timeout (30 seconds without update)
+  if (!gnssTimeoutReported && (millis() - lastGNSSUpdate > 30000)) {
+    Serial.println("[GNSS] Timeout - using default coordinates");
+    gnssTimeoutReported = true;
+  }
+}
+
 /*
  * Helper functions for GPS data display
  * 
@@ -107,4 +161,22 @@ static void printStr(const char *str, int len)
   int slen = strlen(str);
   for (int i=0; i<len; ++i)
     Serial.print(i<slen ? str[i] : ' ');
+}
+
+/**
+ * Custom delay function that ensures GPS data is continuously processed
+ * This prevents the GPS buffer from overflowing and ensures fresh data
+ * 
+ * @param ms Number of milliseconds to delay
+ */
+static void smartDelay(unsigned long ms)
+{
+  unsigned long start = millis();
+  do 
+  {
+    // Process any available GPS data while waiting
+    while (Serial1.available()) {
+      gnss.encode(Serial1.read());
+    }
+  } while (millis() - start < ms);
 }

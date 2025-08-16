@@ -13,5 +13,7 @@ void loopSensor() {
   // Serial.print("level: ");
   // Serial.println(value);
 
-  transmitValue(value, "%");
+    const static uint datastreamId = x;
+
+  transmitValue(value, "%", datastreamId);
 }

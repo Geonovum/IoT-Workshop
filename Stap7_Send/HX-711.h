@@ -45,5 +45,7 @@ void loopSensor() {
   Serial.print("UNITS: ");
   Serial.println(scale.get_units(10));
 
-  // transmitalue(value, "g");
+    const static uint datastreamId = x;
+
+  // transmitalue(value, "g", datastreamId);
 }

@@ -1,23 +1,23 @@
 /*
- * IoT Sensor Project - Step 5: Multi-Sensor Data Collection
+ * IoT Sensor Project - Step 5: Sensor Data Collection
  * 
  * This Arduino sketch implements a comprehensive IoT sensor system that:
  * - Connects to WiFi for data transmission
  * - Collects GPS location data
- * - Reads sensor data (currently HCSR04 distance sensor)
- * - Transmits sensor values to a remote server/cloud
+ * - Reads sensor data 
+ * - Prints sensor values 
  * 
  * Hardware: XIAO ESP32 C3 with various sensors
  * Author: IoT Project
  * Date: aug 2025
  */
 
-#include "arduino_secrets.h"  // WiFi credentials and secrets
+#include "../arduino_secrets.h"  // WiFi credentials and secrets
 // Include helper libraries for different system components
-#include "helpers/logging.h"          // Serial communication and logging setup
-#include "helpers/wifi.h"             // WiFi connection management
+#include "../helpers/logging.h"          // Serial communication and logging setup
+#include "../helpers/wifi.h"             // WiFi connection management
 //#include "helpers/dateTime.h"   // Time synchronization (currently disabled)
-#include "helpers/gnss.h"  // GPS location tracking
+#include "../helpers/gnss.h"  // GPS location tracking
 
 // Function declaration for data transmission
 void transmitValue(float value, char* UoM);
@@ -40,7 +40,7 @@ void transmitValue(float value, char* UoM);
 //#include "MB-090.h"     // Bending Detection (90mm) ❌
 //#include "RCWL-1604.h"  // Distance measurement ✅
 //#include "SEN-0564.h"   // CO measurement ✅
-#include "TCS-3200.h".  // RGB Kleursensor
+//#include "TCS-3200.h".  // RGB Kleursensor
 //#include "TTP-223B.h"   // Capacitive touch ✅
 
 /**

@@ -68,5 +68,7 @@ void loopSensor() {
   Serial.print("  ");
   Serial.println("m/s^2 ");
 
-  transmitValue(event.acceleration.x, "m/s^2");
+  const static uint datastreamId = x;
+
+  transmitValue(event.acceleration.x, "m/s^2", datastreamId);
 }

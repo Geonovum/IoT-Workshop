@@ -67,7 +67,9 @@ void loopSensor() {
   // Convert radians to degrees for readability.
   float headingDegrees = heading * 180/M_PI; 
   
+    const static uint datastreamId = x;
+
   Serial.print("[HMC5883L] Heading (degrees): "); Serial.println(headingDegrees);
 
-  //transmitValue(value);
+  //transmitValue(value, "", datastreamId);
 }

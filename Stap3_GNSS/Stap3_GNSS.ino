@@ -15,29 +15,14 @@
  */
 
 #include <TinyGPSPlus.h>
-#include "helpers/mac.h"
 
-// GPS Module Pin Configuration
-#define RXPin D7          // GPS module TX connects to ESP32 D7 (RX)
-#define TXPin D6          // GPS module RX connects to ESP32 D6 (TX) - optional
-static const uint32_t GNSSBaud = 9600;  // Standard GPS baud rate
-
-// Reference coordinates for Amersfoort, Netherlands
-static const double AMERSFOORT_LAT = 52.1561113;
-static const double AMERSFOORT_LON = 5.3878266;
-
-// The TinyGPSPlus object for parsing GPS data
-TinyGPSPlus gnss;
-
-// Forward declaration of smartDelay function
-static void smartDelay(unsigned long ms);
+#include "../helpers/logging.h"
+#include "../helpers/gnss.h"
+#include "../helpers/mac.h"
 
 void setup()
 {
-  // Initialize serial communication for debugging
-  Serial.begin(115200);
-  while(!Serial) {}
-  delay(50);
+  setupLogging();
 
   Serial.println(F("GNSS Module Test Starting..."));
   Serial.println(F("================================"));
@@ -123,20 +108,3 @@ void loop()
   }
 }
 
-/**
- * Custom delay function that ensures GPS data is continuously processed
- * This prevents the GPS buffer from overflowing and ensures fresh data
- * 
- * @param ms Number of milliseconds to delay
- */
-static void smartDelay(unsigned long ms)
-{
-  unsigned long start = millis();
-  do 
-  {
-    // Process any available GPS data while waiting
-    while (Serial1.available()) {
-      gnss.encode(Serial1.read());
-    }
-  } while (millis() - start < ms);
-}

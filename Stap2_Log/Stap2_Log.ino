@@ -1,5 +1,6 @@
 #include <WiFi.h>
-#include "helpers/mac.h"
+
+#include "../helpers/mac.h" // contains the mac2String function
 
 void setup() {
   Serial.begin(115200);

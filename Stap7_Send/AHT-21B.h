@@ -31,6 +31,9 @@ void loopSensor() {
  // Serial.print("Temperature: "); Serial.print(temp.temperature); Serial.println(" degrees C");
  // Serial.print("Humidity: "); Serial.print(humidity.relative_humidity); Serial.println("% rH");
 
-  transmitValue(temp.temperature, " degrees C");
-  transmitValue(humidity.relative_humidity, "% rH");
+  const static uint datastreamIdTemp = x;
+  const static uint datastreamIdRelH = x;
+
+  transmitValue(temp.temperature, " degrees C", datastreamIdTemp);
+  transmitValue(humidity.relative_humidity, "% rH", datastreamIdRelH);
 }

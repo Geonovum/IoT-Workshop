@@ -1,11 +1,11 @@
 /*
- * IoT Sensor Project - Step 5: Multi-Sensor Data Collection
+ * IoT Sensor Project - Step 5: Sensor Data Collection
  * 
  * This Arduino sketch implements a comprehensive IoT sensor system that:
  * - Connects to WiFi for data transmission
  * - Collects GPS location data
- * - Reads sensor data (currently HCSR04 distance sensor)
- * - Transmits sensor values to a remote server/cloud
+ * - Reads sensor data
+ * - Transmits sensor values to a remote server/cloud (Sensor Things API)
  * 
  * Hardware: XIAO ESP32 C3 with various sensors
  * Author: IoT Project
@@ -15,23 +15,21 @@
 #include <Arduino_JSON.h>  // from https://github.com/arduino-libraries/Arduino_JSON
 
 // Include helper libraries for different system components
-#include "arduino_secrets.h"  // WiFi credentials and secrets
+#include "../arduino_secrets.h"  // WiFi credentials and secrets
 
-#include "helpers/logging.h"   // Serial communication and logging setup
-#include "helpers/wifi.h"      // WiFi connection management
-#include "helpers/ethernet.h"  // WiFi connection management
-#include "helpers/gnss.h"          // GPS location tracking
-#include "helpers/stringFormat.h"  // GPS location tracking
+#include "../helpers/logging.h"   // Serial communication and logging setup
+#include "../helpers/wifi.h"      // WiFi connection management
+#include "../helpers/gnss.h"          // GPS location tracking
+#include "../helpers/stringFormat.h" 
 
-#include <HTTPClient.h>
+#include <HTTPClient.h> // ships with ESP32 library, no extra lib needed
 
-const uint datastreamId = 2;
-const String url = formatString("%s/Datastreams(%d)/Observations", serviceHost, datastreamId);
+const char* serviceHost = "http://iot.aardvark.myds.me/FROST-Server/v1.1";
 
 HTTPClient http;
 
 // Function declaration for data transmission
-void transmitValue(float value, char* UoM);
+void transmitValue(float value, char* UoM, uint datastreamId);
 
 /*
  * SENSOR CONFIGURATION
@@ -77,10 +75,10 @@ void setup() {
  * logs the value, but can be extended to send data via HTTP POST,
  * MQTT, or other protocols.
  */
-void transmitValue(float value, char* UoM) {
+void transmitValue(float value, char* UoM, uint datastreamId) {
   if (WiFi.status() == WL_CONNECTED) {
     // WiFi is connected - ready to transmit data
-    Serial.printf("Value: %.2f%s\n", value, UoM);
+    Serial.printf("Value: %.2f%s (Datastream id: %d)\n", value, UoM, datastreamId);
 
     // Example implementations:
     // - HTTP POST
@@ -106,6 +104,7 @@ void transmitValue(float value, char* UoM) {
     //  observation["phenomenonTime"] = getISO8601dateTime();
     observation["result"] = value;
 
+    const String url = formatString("%s/Datastreams(%d)/Observations", serviceHost, datastreamId);
     auto body = JSON.stringify(observation);
 
     Serial.print("HTTP POST to ");
@@ -121,7 +120,7 @@ void transmitValue(float value, char* UoM) {
 
   } else {
     // WiFi not connected - log the value for debugging
-    Serial.printf("[WiFi] Not connected to Transmit. Value: %.2f%s\n", value, UoM);
+    Serial.printf("[WiFi] Not connected to Transmit. Value: %.2f%s (Datastream Id: %d)\n", value, UoM, datastreamId);
   }
 }
 

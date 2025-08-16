@@ -2,10 +2,6 @@
 
 #include <WiFi.h>
 
-// WiFi connection status tracking
-unsigned long wifiStartTime = 0;    // Timestamp when WiFi connection attempt started
-bool wifiConnected = false;         // Current WiFi connection status
-
 String mac2String(byte ar[]) {
   String s;
   for (byte i = 0; i < 6; ++i) {
@@ -18,6 +14,10 @@ String mac2String(byte ar[]) {
   }
   return s;
 }
+
+// WiFi connection status tracking
+unsigned long wifiStartTime = 0;    // Timestamp when WiFi connection attempt started
+bool wifiConnected = false;         // Current WiFi connection status
 
 void setupWiFi() {
 

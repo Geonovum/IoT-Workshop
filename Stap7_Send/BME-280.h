@@ -34,6 +34,11 @@ void setupSensor() {
 void loopSensor() {
   delay(1000);
 
+  const static uint datastreamIdTemp = x;
+  const static uint datastreamIdPres = x;
+  const static uint datastreamIdAlti = x;
+  const static uint datastreamIdRelH = x;
+
   Serial.print("[BMP180] Temperature = ");
   Serial.print(bme.readTemperature());
   Serial.println(" °C");
