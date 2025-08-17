@@ -2,7 +2,9 @@
 //  ==================================================
 //   top view  DESCRIPTION     COLOR
 //       +---+
+//       |o  |       VCC         RED
 //       |o  |       GND         BLACK
+//       |o  |       OUT         White
 //       +---+
 //
 // Observed Properties:
@@ -13,47 +15,55 @@
 
 // https://cdn-shop.adafruit.com/datasheets/MAX4465-MAX4469.pdf
 
-// A0 is the analog output pin that delivers the amplified sound signal. 
-// Please note that the output will have a DC bias equal to VCC/2, so when it’s perfectly quiet, 
+// A0 is the analog output pin that delivers the amplified sound signal.
+// Please note that the output will have a DC bias equal to VCC/2, so when it’s perfectly quiet,
 // the voltage will remain steady at a VCC/2 level.
 
-// If you adjust the MAX4466 so the ADC reads 4095 when the audio volume is 130db, 
+// If you adjust the MAX4466 so the ADC reads 4095 when the audio volume is 130db,
 // the ADC reading of 1 will represent an audio volume of about 60db.
 
 
-const uint8_t soundPin = A0; // analoge uitgang van versterkt microfoon signaal
+const uint8_t soundPin = A0;  // analoge uitgang van versterkt microfoon signaal
 
 const int sampleWindow = 50;  // Sample window width in mS (50 mS = 20Hz)
+const int adcResolution = 4095;
+
+int audioInRaw;
+int audioInRectified;
+#define samples (256)
 
 void setupSensor() {
-  pinMode(soundPin, INPUT);  
+  pinMode(soundPin, INPUT);
+}
+
+
+float audioIn() {
+  int audioAverage = 0, audioMax = 0, audioMin = adcResolution;
+
+  for (int i = 0; i < samples; i++) {
+    int audioInRaw = analogRead(A0);
+
+    audioInRectified = abs(audioInRaw - 337);  // level shift for 3,3V
+    audioMin = min(audioMin, audioInRaw);
+    audioMax = max(audioMax, audioInRaw);
+    audioAverage += audioInRaw;
+  }
+
+  audioAverage /= samples;
+  double volts = ((audioMax - audioMin) * 3.3f) / adcResolution;  // convert to volts
+
+  /*
+  Serial.print("audioInRectified:"); Serial.print(audioInRectified); Serial.print(" ");
+  Serial.print("audioMin:"); Serial.print(audioMin); Serial.print(" ");
+  Serial.print("audioMax:"); Serial.print(audioMax); Serial.print(" ");
+  Serial.print("audioAverage:"); Serial.print(audioAverage); Serial.print(" ");
+  Serial.print("volts:"); Serial.println(volts);
+*/
+
+   return volts;
 }
 
 void loopSensor() {
-  auto startMillis = millis(); // Start of sample window
-  auto peakToPeak = 0;   // peak-to-peak level
-
-  auto signalMax = 0;
-  auto signalMin = 1024;
-
-  // collect data for 50 mS and then plot data
-  while (millis() - startMillis < sampleWindow)
-  {
-    auto sample = analogRead(soundPin);
-    if (sample < 1024)  // toss out spurious readings
-    {
-      if (sample > signalMax)
-      {
-        signalMax = sample;  // save just the max levels
-      }
-      else if (sample < signalMin)
-      {
-        signalMin = sample;  // save just the min levels
-      }
-    }
-  }
-  peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude
- // Serial.println(peakToPeak);
-  transmitValue(peakToPeak, "Clap!");
-
+  // Serial.println(peakToPeak);
+  transmitValue(audioIn(), "V");
 }
