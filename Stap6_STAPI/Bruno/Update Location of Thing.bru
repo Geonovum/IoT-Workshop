@@ -1,0 +1,30 @@
+meta {
+  name: Update Location of Thing
+  type: http
+  seq: 14
+}
+
+post {
+  url: {{Endpoint}}/Locations
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Vaalserberg",
+    "description": "Hoogste punt Nederland",
+    "encodingType": "application/vnd.geo+json",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        6.020759,
+        50.754699
+      ]
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}
