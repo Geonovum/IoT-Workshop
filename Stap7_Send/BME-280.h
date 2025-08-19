@@ -34,29 +34,18 @@ void setupSensor() {
 void loopSensor() {
   delay(1000);
 
-  const static uint datastreamIdTemp = x;
-  const static uint datastreamIdPres = x;
-  const static uint datastreamIdAlti = x;
-  const static uint datastreamIdRelH = x;
+  auto temperature = bme.readTemperature();
+  auto pressure    = bme.readPressure();
+  auto altitude    = bme.readAltitude(SEALEVELPRESSURE_HPA);
+  auto relHumidity = bme.readHumidity();
 
-  Serial.print("[BMP180] Temperature = ");
-  Serial.print(bme.readTemperature());
-  Serial.println(" °C");
+  const static uint datastreamIdTemp   = x;
+  const static uint datastreamIdPres   = x;
+  const static uint datastreamIdAlt    = x;
+  const static uint datastreamIdRelHum = x;
 
-  Serial.print("[BMP180] Pressure = ");
-  Serial.print(bme.readPressure() / 100.0f);
-  Serial.println(" hPa");
-
-  Serial.print("[BMP180] Approx. Altitude = ");
-  Serial.print(bme.readAltitude(SEALEVELPRESSURE_HPA));
-  Serial.println(" m");
-
-  Serial.print("[BMP180] Humidity = ");
-  Serial.print(bme.readHumidity());
-  Serial.println(" % rH");
-
-  // Serial.print("level: ");
-  // Serial.println(value);
-
-  //transmitValue(value);
+  transmitValue(temperature, "°C", datastreamIdTemp);
+  transmitValue(pressure, " hPa", datastreamIdPres);
+  transmitValue(altitude, " m", datastreamIdAlt);
+  transmitValue(relHumidity, " % rH", datastreamIdRelHum);
 }

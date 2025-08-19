@@ -28,7 +28,7 @@ void transmitValue(float value, char* UoM);
  * Uncomment the sensor you want to use. Only one sensor can be active at a time
  * due to pin conflicts and I2C address conflicts.
  */
-//#include "ADXL-345.h"   // Accelerometer ✅
+#include "ADXL-345.h"   // Accelerometer ✅
 //#include "AHT-21B.h"    // Measure temperature and humudity ✅
 //#include "BME-280.h"    // Measure Thermometer, Barometer en Vochtigheid ✅
 //#include "HMC-5883L.h"  // Digital Compass ✅
@@ -37,11 +37,12 @@ void transmitValue(float value, char* UoM);
 //#include "MAT-060.h"    // Sliding potentiometer ✅
 //#include "MAX-4466.h"   // Microphone applifier, clap detector ✅
 //#include "MAX-30102.h"  // PulseOximeter ✅
-#include "MB-090.h"     // Bending Detection (90mm) ✅
+//#include "MB-090.h"     // Bending Detection (90mm) ✅
 //#include "RCWL-1604.h"  // Distance measurement ✅
 //#include "SEN-0564.h"   // CO measurement ✅
-//#include "TCS-3200.h".  // RGB Kleursensor ❌
 //#include "TTP-223B.h"   // Capacitive touch ✅
+
+//#include "TCS-3200.h".  // RGB Kleursensor ❌
 
 /**
  * Setup function - runs once at startup

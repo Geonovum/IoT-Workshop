@@ -13,7 +13,7 @@
 // Unit of Measure:
 // - ???
 
-#include <TCS3210.h>
+#include <TCS3210.h> // Rob Tillaart
 
 #define S0_PIN D0
 #define S1_PIN D1
@@ -47,6 +47,8 @@ void loopSensor() {
   TCS.selectBlue();
   Serial.print(TCS.getFrequency());
   Serial.print("\n");
+
+  transmitValue(0, "");
 
   delay (100);
 }

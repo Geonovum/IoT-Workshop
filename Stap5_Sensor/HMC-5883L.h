@@ -15,7 +15,7 @@
 // Unit of Measure:
 // - uT
 
-#include <Adafruit_HMC5883_U.h>
+#include <Adafruit_HMC5883_U.h> // HMC5883 Adafruit
 
 /* Assign a unique ID to this sensor at the same time */
 Adafruit_HMC5883_Unified mag = Adafruit_HMC5883_Unified(12345);
@@ -74,5 +74,5 @@ void loopSensor() {
   
   Serial.print("[HMC5883L] Heading (degrees): "); Serial.println(headingDegrees);
 
-  //transmitValue(value);
+  transmitValue(headingDegrees, " deg");
 }

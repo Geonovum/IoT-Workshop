@@ -19,7 +19,7 @@
 
 
 // Library: Adafruit AHTX0 
-#include <Adafruit_AHTX0.h>
+#include <Adafruit_AHTX0.h> // AHTX0 Adafruit
 
 Adafruit_AHTX0 aht;
 

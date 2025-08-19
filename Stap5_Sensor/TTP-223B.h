@@ -21,7 +21,7 @@
 // Let op: In de reset stand sensor kan maar maximaal ~7s een aanraking registeren,
 // daarna zal de output weer laag (A=0,B=0) worden, of hoog worden (A=1,B=0).
 
-#include <TouchSensorLib.h>
+#include <TouchSensorLib.h> // TouchSensorLib Herobrine Pixel
 
 TouchSensor touch(D2);  // Connect TTP223 OUT to D2
 
@@ -37,6 +37,7 @@ void loopSensor() {
 
   if (touch.isTouched()) {
     Serial.println("[TTP223B] Touching...");
+    transmitValue(1, "");
   }
 
   if (touch.wasTapped()) {
@@ -47,9 +48,4 @@ void loopSensor() {
     Serial.println("[TTP223B] Long Press Detected!");
   }
 
-
-  // Serial.print("level: ");
-  // Serial.println(value);
-
-  // transmitValue(value);
 }

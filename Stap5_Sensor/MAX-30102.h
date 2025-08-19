@@ -23,7 +23,7 @@
 // - bpm
 // - %
 
-#include "MAX30102_PulseOximeter.h"
+#include "MAX30102_PulseOximeter.h"  // VEGA_MAX30102
 
 // PulseOximeter is the higher level interface to the sensor
 // it offers:
@@ -36,8 +36,8 @@ uint32_t tsLastReport = 0;
 
 void onBeatDetected() {
   Serial.println("[MAX30102] Beat!");
+  //   transmitValue(1, " beat");
 }
-
 
 void setupSensor() {
   // Initialize sensor
@@ -61,17 +61,22 @@ void loopSensor() {
   // Asynchronously dump heart rate and oxidation levels to the serial
   // For both, a value of 0 means "invalid"
   if (millis() - tsLastReport > REPORTING_PERIOD_MS) {
+
+    auto heartRate = pox.getHeartRate();
+    auto spO2 = pox.getSpO2();
+    /*
     Serial.print("[MAX30102] Heart rate:");
     Serial.print(pox.getHeartRate());
     Serial.print("bpm / SpO2:");
     Serial.print(pox.getSpO2());
     Serial.print("%");
-
-    //transmitValue(value);
+*/
+    transmitValue(heartRate, " bpm");
+    transmitValue(spO2, "%");
 
     // if (irValue < 70)
     // Serial.print(",  No finger?");
-    Serial.println();
+    //Serial.println();
 
     tsLastReport = millis();
   }

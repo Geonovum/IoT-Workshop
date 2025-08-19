@@ -18,7 +18,7 @@
 // Unit of Measure:
 // - m/s^2
 
-#include <Adafruit_ADXL345_U.h>
+#include <Adafruit_ADXL345_U.h> // ADXL345 Adafruit
 
 Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified(12345);
 

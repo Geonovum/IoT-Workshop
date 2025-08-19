@@ -22,7 +22,7 @@
 // - m
 // - % rH
 
-#include <Adafruit_BME280.h>
+#include <Adafruit_BME280.h> // BME280 Adafruit
 
 #define SEALEVELPRESSURE_HPA (1013.25)
 #define I2C_ADDRESS 0x76
@@ -46,24 +46,13 @@ void setupSensor() {
 void loopSensor() {
   delay(1000);
 
-  Serial.print("[BMP180] Temperature = ");
-  Serial.print(bme.readTemperature());
-  Serial.println(" °C");
+  auto temperature = bme.readTemperature();
+  auto pressure    = bme.readPressure();
+  auto altitude    = bme.readAltitude(SEALEVELPRESSURE_HPA);
+  auto relHumidity = bme.readHumidity();
 
-  Serial.print("[BMP180] Pressure = ");
-  Serial.print(bme.readPressure() / 100.0f);
-  Serial.println(" hPa");
-
-  Serial.print("[BMP180] Approx. Altitude = ");
-  Serial.print(bme.readAltitude(SEALEVELPRESSURE_HPA));
-  Serial.println(" m");
-
-  Serial.print("[BMP180] RelativeHumidity = ");
-  Serial.print(bme.readHumidity());
-  Serial.println(" % rH");
-
-  // Serial.print("level: ");
-  // Serial.println(value);
-
-  //transmitValue(value);
+  transmitValue(temperature, "°C");
+  transmitValue(pressure, " hPa");
+  transmitValue(altitude, " m");
+  transmitValue(relHumidity, " % rH");
 }

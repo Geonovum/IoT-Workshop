@@ -14,7 +14,7 @@
 // Unit of Measure:
 // - g
 
-#include <HX711.h>
+#include <HX711.h> // Rob Tillaart
 
 HX711 scale;
 
@@ -23,6 +23,9 @@ uint8_t clockPin = D2;
 
 void setupSensor() {
   scale.begin(dataPin, clockPin);
+
+  Serial.print("HX711_LIB_VERSION: ");
+  Serial.println(HX711_LIB_VERSION);
 
   Serial.print("UNITS: ");
   Serial.println(scale.get_units(10));
@@ -36,10 +39,8 @@ void setupSensor() {
   Serial.print("UNITS: ");
   Serial.println(scale.get_units(10));
 
-
-  Serial.println("\nPut 1000 gram in the scale, press a key to continue");
-  while (!Serial.available())
-    ;
+  Serial.println("\nPut 1000 gram on the scale, press a key to continue");
+  while (!Serial.available());
   while (Serial.available()) Serial.read();
 
   scale.calibrate_scale(1000, 5);
@@ -48,8 +49,7 @@ void setupSensor() {
 }
 
 void loopSensor() {
-  Serial.print("UNITS: ");
-  Serial.println(scale.get_units(10));
+  auto weight = scale.get_units(10);
 
-  // transmitalue(value, "g");
+   transmitValue(weight, "g");
 }
