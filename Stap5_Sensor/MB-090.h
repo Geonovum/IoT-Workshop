@@ -6,19 +6,20 @@
 //       +---+
 ////
 // Observed Properties:
-// - bending angle
+// - bending resistance
 //
 // Unit of Measure:
-// - bpm
+// - ohm
 
 // Resistance (Kohm) will increase when bending angle increases
 
 // Note: do not forget the 10Kohm resistor
 // 3.3V --- Alpha MB090 bending sensor --- Analog pin (e.g. GPIO3) --- 10kΩ resistor --- GND
 
-const uint8_t measurePin = A0; // analoge uitgang van versterkt microfoon signaal
+const uint8_t measurePin = A0;  // analoge uitgang van versterkt microfoon signaal
 
-const float vcc = 3.3f; // VCC
+const float fixedResistor = 10000;  // 10Kohm
+const float vcc = 3.3f;             // VCC
 
 void setupSensor() {
   pinMode(measurePin, INPUT);
@@ -27,21 +28,14 @@ void setupSensor() {
 }
 
 void loopSensor() {
- // delay(200);
-  
-  auto value = analogRead(measurePin);
+  delay(200);
 
- // Serial.print("level: ");
- // Serial.println(value);
+  auto flexADC = analogRead(measurePin);
 
-  // Optional: convert to voltage
-  float voltage = value * (vcc / 4095.0);
+  float flexVoltage = flexADC * vcc / 4095.0;
+  float flexResistance = (fixedResistor * (vcc / flexVoltage - 1.0));
 
-  Serial.print("ADC Value: ");
-  Serial.print(value);
-  Serial.print(" - Voltage: ");
-  Serial.println(voltage, 3);
+  // float angle = map(flexResistance, flatResistance, bendResistance, 0, 90.0);
 
-
-//  transmitValue(value);
+  transmitValue(flexResistance, " ohm");
 }

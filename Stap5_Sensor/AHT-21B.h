@@ -11,7 +11,7 @@
 //       +---+
 // Observed Properties:
 // - temperature
-// - humidity
+// - relative humidity
 //
 // Unit of Measure:
 // - degress C

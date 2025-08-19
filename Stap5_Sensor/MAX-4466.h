@@ -8,10 +8,10 @@
 //       +---+
 //
 // Observed Properties:
-// - ???
+// - Volt (or Peak sound level)
 //
 // Unit of Measure:
-// - ???
+// - Volt
 
 // https://cdn-shop.adafruit.com/datasheets/MAX4465-MAX4469.pdf
 

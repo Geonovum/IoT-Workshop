@@ -3,6 +3,7 @@
 //   top view  DESCRIPTION     COLOR
 //       +---+
 //       |o  |       GND         BLACK
+//       |o  |       Analog      white
 //       +---+
 //
 // Observed Properties:

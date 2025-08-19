@@ -1,0 +1,23 @@
+meta {
+  name: Resistance
+  type: http
+  seq: 16
+}
+
+post {
+  url: {{Endpoint}}/ObservedProperties
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Volt",
+    "description": "The difference between electrical potentials of two points",
+    "definition": "https://qudt.org/vocab/quantitykind/Voltage"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
