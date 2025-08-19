@@ -16,8 +16,10 @@ First things first! We gebruiken een breadboard en draden om verbindingen te leg
 
 ![1__38__ms1 rvf_3](https://github.com/user-attachments/assets/fcf70c9c-df58-4496-9675-d9782186cd3f)
 
+Belangrijk: verbindt massa nooit direct met de voeding! Als je het wel doet, dan ruik je het snel....
 
 ## Het Thing en de GPS - hoe werkt dat?
 
 <img width="1121" height="725" alt="Screenshot 2025-08-19 at 17 53 27" src="https://github.com/user-attachments/assets/2049d0f2-d8e1-4d43-b10b-91fe0d582b08" />
+
 
