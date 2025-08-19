@@ -13,7 +13,7 @@ void loopSensor() {
   auto moistureAnalogicVal = analogRead(MOISTURE_ANALOGIC_IN);  // Read the analogic data and convert it to [0, 4095]
   auto percentage = map(moistureAnalogicVal, WET, DRY, 100, 0);
 
-  const static uint datastreamId = 3;
+  const static uint datastreamId = x;
 
   transmitValue(percentage, "% rH", datastreamId);
 }

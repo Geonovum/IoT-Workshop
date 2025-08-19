@@ -49,7 +49,7 @@ void setupSensor() {
 }
 
 void loopSensor() {
-  auto weight = scale.get_units(10);
+  auto weight = scale.get_units(10) / 1000.f;
 
-   transmitValue(weight, "g");
+   transmitValue(weight, "kg");
 }

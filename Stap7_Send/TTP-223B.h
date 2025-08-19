@@ -22,6 +22,10 @@ void loopSensor() {
 
   if (touch.isTouched()) {
     Serial.println("[TTP223B] Touching...");
+
+    const static uint datastreamId = x;
+
+    transmitValue(1, "", datastreamId);
   }
 
   if (touch.wasTapped()) {
@@ -32,11 +36,6 @@ void loopSensor() {
     Serial.println("[TTP223B] Long Press Detected!");
   }
 
-
   // Serial.print("level: ");
   // Serial.println(value);
-
-      const static uint datastreamId = x;
-
-  // transmitValue(value, "", datastreamId);
 }

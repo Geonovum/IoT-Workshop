@@ -53,21 +53,26 @@ void loopSensor() {
   // Asynchronously dump heart rate and oxidation levels to the serial
   // For both, a value of 0 means "invalid"
   if (millis() - tsLastReport > REPORTING_PERIOD_MS) {
+
+    auto heartRate = pox.getHeartRate();
+    auto spO2 = pox.getSpO2();
+    /*
     Serial.print("[MAX30102] Heart rate:");
     Serial.print(pox.getHeartRate());
     Serial.print("bpm / SpO2:");
     Serial.print(pox.getSpO2());
     Serial.print("%");
+*/
 
     const static uint datastreamIdHeartRate = x;
     const static uint datastreamIdSp02 = x;
 
-    //transmitValue(value, "", datastreamIdHeartRate);
-    //transmitValue(value, "", datastreamIdSp02);
+    transmitValue(heartRate, " bpm", datastreamIdHeartRate);
+    transmitValue(spO2, " %", datastreamIdSp02);
 
     // if (irValue < 70)
     // Serial.print(",  No finger?");
-    Serial.println();
+    //Serial.println();
 
     tsLastReport = millis();
   }

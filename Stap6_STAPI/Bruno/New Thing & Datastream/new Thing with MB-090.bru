@@ -1,0 +1,42 @@
+meta {
+  name: new Thing with MB-090
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{Endpoint}}/Things
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "????",
+    "description": "XIAO ESP32 C3",
+    "properties": {},
+    "Locations": [
+      {
+        "@iot.id": 4
+      }
+    ],
+    "Datastreams": [
+      {
+        "name": "Resistance DS",
+        "description": "Datastream for recording Resistance",
+        "observationType": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
+        "unitOfMeasurement": {
+          "name": "Ohm",
+          "symbol": "Ω",
+          "definition": "https://qudt.org/vocab/unit/OHM"
+        },
+        "Sensor": {
+          "@iot.id": 23
+        },
+        "ObservedProperty": {
+          "@iot.id": 38
+        }
+      }
+    ]
+  }
+}

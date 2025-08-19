@@ -42,10 +42,9 @@ void setupSensor() {
 }
 
 void loopSensor() {
-  Serial.print("UNITS: ");
-  Serial.println(scale.get_units(10));
+  auto weight = scale.get_units(10) / 1000.f;
 
-    const static uint datastreamId = x;
+  const static uint datastreamId = x;
 
-  // transmitalue(value, "g", datastreamId);
+  transmitValue(weight, "kg", datastreamId);
 }
