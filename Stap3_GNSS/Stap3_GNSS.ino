@@ -14,8 +14,6 @@
  * - Monitors GPS data quality and connection status
  */
 
-#include <TinyGPSPlus.h>
-
 #include "../helpers/logging.h"
 #include "../helpers/gnss.h"
 #include "../helpers/mac.h"
