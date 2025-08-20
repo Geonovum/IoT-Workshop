@@ -1,4 +1,4 @@
 #pragma once
 
-#define SECRET_SSID "Het internet ga weer nie"
-#define SECRET_PASS "MEEN_con2door@nusm"
+#define SECRET_SSID "xxxx"
+#define SECRET_PASS "xxxx"
