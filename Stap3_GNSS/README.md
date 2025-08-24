@@ -20,12 +20,13 @@ Belangrijk: verbindt massa nooit direct met de voeding! Als je het wel doet, dan
 
 ## Het Thing en de GPS - hoe werkt dat?
 
-De GPS (of meer algemeen: GNSS[1]) stuurt een serieel (1 draad voor zenden en 1 draad (optioneel) voor ontvangen) bytes door volgens het NMEA protocol.
+De GPS (of meer algemeen: GNSS[1]) stuurt een serieel (1 draad voor zenden en 1 draad (optioneel) voor ontvangen) bytes door volgens het [NMEA protocol](https://nl.wikipedia.org/wiki/NMEA-0183).
 
 <img width="1121" height="725" alt="Screenshot 2025-08-19 at 17 53 27" src="https://github.com/user-attachments/assets/2049d0f2-d8e1-4d43-b10b-91fe0d582b08" />
 
 
 
 [1] GPS, Beidou, Glonass, Galileo, QZSS, SBAS ...
+
 
 
