@@ -33,9 +33,10 @@ De blauwe TX draad (van de GPS) gaat naar het RX contact (pin D7) van de XIAO di
 
 ## Programmeren maar
 
-Open ArduinoIDE en laad het Stap3_GNSS.ino bestand; compileer en upload!
+Open ArduinoIDE en laad het `Stap3_GNSS.ino` bestand; compileer en upload!
 
 [1] GPS, Beidou, Glonass, Galileo, QZSS, SBAS ...
+
 
 
 
