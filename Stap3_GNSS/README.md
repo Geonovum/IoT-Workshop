@@ -31,7 +31,12 @@ De blauwe TX draad (van de GPS) gaat naar het RX contact (pin D7) van de XIAO di
 <img width="1280" height="720" alt="pin_map-2" src="https://github.com/user-attachments/assets/50a36612-d3dc-4736-bbd5-2393f92ff132" />
 
 
+## Programmeren maar
+
+Open ArduinoIDE en laad het Stap3_GNSS.ino bestand; compileer en upload!
+
 [1] GPS, Beidou, Glonass, Galileo, QZSS, SBAS ...
+
 
 
 
