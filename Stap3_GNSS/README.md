@@ -1,6 +1,6 @@
 # Het wordt straffer!
 
-## Positie bepaling via GPS - of beter: GNSS
+## Positie bepaling via GPS - of beter: GNSS[1]
 
 We hier tenslotte bij Geonovum en vinden locatie leuk!
 
@@ -27,4 +27,5 @@ De GPS (of meer algemeen: GNSS[1]) stuurt een serieel (1 draad voor zenden en 1 
 
 
 [1] GPS, Beidou, Glonass, Galileo, QZSS, SBAS ...
+
 
