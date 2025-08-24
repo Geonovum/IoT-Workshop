@@ -60,3 +60,5 @@ We zoeken op:
 ## Lesson Learned
 
 Je moet erg precies zijn en het is omslachtig - een tool om je hierbij te helpen zou fijn zijn!
+
+> We doen het hier op deze manier, zodat je inziet wat er precies gebeurt!
