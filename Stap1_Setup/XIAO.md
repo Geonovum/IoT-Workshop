@@ -29,4 +29,4 @@
 - **3.3V** IO standaart 
 - WiFi & Bluetooth
 
-[Ga naar ArduinoIDE](Programmeren.md)
+[Ga naar ArduinoIDE](ArduinoIDE.md)
