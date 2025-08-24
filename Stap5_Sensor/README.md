@@ -29,3 +29,9 @@ Draadjes voor protocol verbinding
 ### Protocol?
 
 Yep: of we meten een analoge spanning, een digitaal signaal of [I2C](https://nl.wikipedia.org/wiki/I²C-bus)
+
+### In de Arduino Code
+
+Uncomment de sensor die je gaat gebruiken!
+
+<img width="715" height="372" alt="Screenshot 2025-08-24 at 14 36 49" src="https://github.com/user-attachments/assets/cb715f19-a4ab-4654-8223-7159a35162dd" />
