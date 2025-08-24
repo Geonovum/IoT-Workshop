@@ -17,3 +17,7 @@ Open Bruno en laad het Bruno prject van Stap6_STAPI
 Wat het het `@iot.id`?
 
 Kijk in de header van het antwoord!
+
+<img width="729" height="283" alt="Screenshot 2025-08-24 at 14 03 48" src="https://github.com/user-attachments/assets/bbb5a6f0-9739-4fd5-8ecf-85c2117d9734" />
+
+Antwoord bij `location`: `3`
