@@ -39,4 +39,4 @@ Kies USB Seriele poort:
 
 🎉
 
-[Ga naar XIAO](XIAO.md)
+[Ga naar Programmeren](Programmeren.md)
