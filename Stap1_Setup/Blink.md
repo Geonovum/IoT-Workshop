@@ -25,4 +25,4 @@ Twee: oversturen van de machine code naar het board:
 
 Met een beetje mazzel is alles gelukt en doet je programma absoluut niks😃! Woehoe🥳!
 
-[Ga naar Stap2](https://github.com/lathoub/IoT/blob/main/Stap2_Log/Stap2_Log.ino)
+[Ga naar Stap2](https://github.com/lathoub/IoT/blob/main/Stap2_Log/README.ino)
