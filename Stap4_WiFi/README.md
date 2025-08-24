@@ -30,22 +30,19 @@ Als er staat:
 ```
 [WiFi] Disconnected
 [WiFi] SSID not found
-[WiFi] SSID not found
-[WiFi] SSID not found
-[WiFi] SSID not found
-[WiFi] SSID not found
-[WiFi] SSID not found
-[WiFi] SSID not found
-[WiFi] SSID not found
-[WiFi] SSID not found
-[WiFi] SSID not found
-[WiFi] SSID not found
-[WiFi] SSID not found
-[WiFi] SSID not found
-[WiFi] SSID not found
-[WiFi] SSID not found
+...
 [WiFi] SSID not found
 [WiFi] Failed to connect
 ```
 
 dan is waarschijnlijk het SSID of het wachtwoord fout, of.... heb je een andere probleem.
+
+# Andere IoT protocollen
+
+- Bluetooth
+- LoRa
+- ZigBee
+- Thread
+- LoRaWan
+- NB-IoT
+- Z-Wave 
