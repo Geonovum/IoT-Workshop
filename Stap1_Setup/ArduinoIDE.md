@@ -39,4 +39,4 @@ Kies USB Seriele poort:
 
 🎉
 
-[Ga naar Blink](XIAO.md)
+[Ga naar XIAO](XIAO.md)
