@@ -26,7 +26,7 @@
 - EEPROM Geëmuleerd
 - 160 MHz klok snelheid
 - 11 IO digitale pins (4 analoog)
-- **3.3V** IO standaart 
+- **3.3V** IO standaard
 - WiFi & Bluetooth
 
 [Ga naar ArduinoIDE](ArduinoIDE.md)
