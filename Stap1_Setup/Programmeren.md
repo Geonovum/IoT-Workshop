@@ -29,4 +29,4 @@ void loop()
 }
 ```
 
-[Ga naar ArduinoIDE](Blink.md)
+[Ga naar Blink](Blink.md)
