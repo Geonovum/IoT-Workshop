@@ -26,12 +26,13 @@ De GPS (of meer algemeen: GNSS[1]) stuurt een serieel (1 draad voor zenden (TX, 
 
 >Let op: de GPS wordt gevoed met 5V - het signaal terug naar de XIAO is slecht 3.3V
 
-De blauwe TX draad gaat naar het RX contact (pin D7) van de XIAO die intern verbonden is met de [UART](https://nl.wikipedia.org/wiki/UART).
+De blauwe TX draad (van de GPS) gaat naar het RX contact (pin D7) van de XIAO die intern verbonden is met de [UART](https://nl.wikipedia.org/wiki/UART).
 
 <img width="1280" height="720" alt="pin_map-2" src="https://github.com/user-attachments/assets/50a36612-d3dc-4736-bbd5-2393f92ff132" />
 
 
 [1] GPS, Beidou, Glonass, Galileo, QZSS, SBAS ...
+
 
 
 
