@@ -29,4 +29,4 @@
 - **3.3V** IO standaard
 - WiFi & Bluetooth
 
-[Ga naar Blink](Blink.md)
+[Ga naar ArduinoIDE](ArduinoIDE.md)
