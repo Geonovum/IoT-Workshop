@@ -53,4 +53,5 @@ We registeren:
 - Thing's `Location`
 - `Datastream` (wordt opgebouwd met `Sensor` en `ObservedProperty`)
 
-Belangrijk: onthoudt het `@iot.id` van de `Datastream` (in het HTTP antwoord, `location`)
+Belangrijk 1: onthoudt het `@iot.id` van het `Thing` (in het HTTP antwoord, `location`)
+Belangrijk 2: wat zijn de `@iot.id` van het `Thing` zijn `Datastreams`
