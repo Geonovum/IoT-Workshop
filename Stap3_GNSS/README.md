@@ -24,9 +24,10 @@ De GPS (of meer algemeen: GNSS[1]) stuurt een serieel (1 draad voor zenden (blau
 
 <img width="1121" height="725" alt="Screenshot 2025-08-19 at 17 53 27" src="https://github.com/user-attachments/assets/2049d0f2-d8e1-4d43-b10b-91fe0d582b08" />
 
-
+>Let op: de GPS wordt gevoed met 5V - het signaal terug naar de XIAO is slecht 3.3V
 
 [1] GPS, Beidou, Glonass, Galileo, QZSS, SBAS ...
+
 
 
 
