@@ -14,3 +14,10 @@ Gebaseerd op ISO 19156 Observations & Measurements
 ## (OData) API en MQTT
 
 De Standaard heeft 2 manieren om het model te bevragen: HTTP(S) ODATA API (REST API in ontwikkeling) en MQTT
+
+## Andere protocollen
+
+- CoAP (Constrained Application Protocol)
+- AMQP (Advanced Message Queuing Protocol)
+- DDS (Data Distribution Service)
+- LwM2M (Lightweight M2M)
