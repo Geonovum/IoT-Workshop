@@ -55,4 +55,4 @@ We registeren:
 
 We zoeken op:
 - Belangrijk 1: onthoudt het `@iot.id` van het `Thing` (in het HTTP antwoord, `location`)
-- Belangrijk 2: wat zijn de `@iot.id` van het `Thing` zijn `Datastreams`
+- Belangrijk 2: wat zijn de `@iot.id` van het `Thing` zijn `Datastreams` (Hint: `{{Endpoint}}/Things(x)/Datastreams`)
