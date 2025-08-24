@@ -49,6 +49,8 @@ Alvorens we onze observatie kunnen posten naar de server, moeten we eerst ons `T
 ```
 
 We registeren:
-- Thing
-- Thing's Location
-- Datastream (wordt opgebouwd met `Sensor` en `ObservedProperty`)
+- `Thing`
+- Thing's `Location`
+- `Datastream` (wordt opgebouwd met `Sensor` en `ObservedProperty`)
+
+Belangrijk: onthoudt het `@iot.id` van de `Datastream` (in het HTTP antwoord, `location`)
