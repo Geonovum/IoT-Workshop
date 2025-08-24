@@ -4,7 +4,7 @@ Dit wordt plezant, maar ook een beetje moeilijk - niet echt moeilijk, maar je mo
 
 ## Eenmalige Registratie
 
-Alvorens we onze observatie kunnen posten naar de server, moeten we eerst ons `Thing` registeren.
+Alvorens we onze observatie kunnen posten naar de server, moeten we eerst ons `Thing` registeren (en een `Location` en een `Datastream` - die wordt samengesteld door een `Sensor`, `ObservedProperty` en `Thing`).
 
 ### Voorbeeld ADXL-345
 
