@@ -9,7 +9,7 @@ https://iot.aardvark.myds.me/FROST-Server/v1.1
 
 Gebaseerd op ISO 19156 Observations & Measurements
 
-![STA-1 0-UML](https://github.com/user-attachments/assets/8fa46d14-6397-4bc4-a8d8-e1c2936ebdeb)
+<img width="2880" height="1982" alt="SensorThings_API_data_model svg" src="https://github.com/user-attachments/assets/15c94d29-3abd-47fb-b2f6-31d5a88997ca" />
 
 ## (OData) API en MQTT
 
