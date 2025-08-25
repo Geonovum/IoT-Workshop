@@ -75,3 +75,7 @@ Verander:
 ### Execute HTTP call
 
 Check eerst even met Bart en klik `->` maar 1 keer!!
+
+## Kijken naar alle Things
+
+[Things op een kaartje](https://raw.githack.com/lathoub/UISTA/main/index.html)
