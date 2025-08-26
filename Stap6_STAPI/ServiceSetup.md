@@ -44,3 +44,7 @@ services:
 volumes:
     postgis_volume:
 ```
+
+## Toegang via het Internet
+
+Via Reverse-Proxy of tunnel. 
