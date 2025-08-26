@@ -2,7 +2,11 @@
 
 ## FROST running in a Docker environment
 
-Docker compose file:
+### Docker Hub
+https://hub.docker.com/r/fraunhoferiosb/frost-server
+
+### Docker compose file:
+
 (werkt op een Synology NAS (DSM 7.2.2) met Container Manager)
 
 ```yaml
