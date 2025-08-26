@@ -8,9 +8,9 @@ Bij de sensor hoort ook een blad, met daarin de instructies om de sensor aan te 
 
 ### Nog meer sensoren
 
-https://www.tinytronics.nl/nl/sensoren (no endorsement)
-https://www.sossolutions.nl/zoeken?q=sensors&page=1&trigger=keyword (no endorsement)
-https://www.otronic.nl/nl/sensors/ (no endorsement)
+- https://www.tinytronics.nl/nl/sensoren (no endorsement)
+- https://www.sossolutions.nl/zoeken?q=sensors&page=1&trigger=keyword (no endorsement)
+- https://www.otronic.nl/nl/sensors/ (no endorsement)
 ...
 
 ## Sensor aansluiten
