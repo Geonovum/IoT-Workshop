@@ -5,7 +5,7 @@
 Lunch op de middag
 
 ## Context
-Jullie meenemen in de wereld van IoT, van Thing tot (interoperable) service.
+Introductie in de wereld van IoT, van Thing tot (interoperable) service.
 
 ## Omgeving
 We zitten in een veilige omgeving, er zijn geen domme vragen!
