@@ -42,8 +42,6 @@ void transmitValue(float value, char* UoM);
 //#include "SEN-0564.h"   // CO measurement ✅
 //#include "TTP-223B.h"   // Capacitive touch ✅
 
-//#include "TCS-3200.h".  // RGB Kleursensor ❌
-
 /**
  * Setup function - runs once at startup
  * Initializes all system components in the correct order
