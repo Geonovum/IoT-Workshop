@@ -15,7 +15,7 @@ Bij de sensor hoort ook een blad, met daarin de instructies om de sensor aan te 
 
 ## Sensor aansluiten
 
-Is de USB verbinding verbroken? Check nog eens!
+Is de USB verbinding verbroken? Check nog eens, verbinding moet verbroken zijn!
 
 Weet je nog hoe het breadboard werkt? Kijk het nog eens na!
 
