@@ -22,7 +22,7 @@ Belangrijk: verbindt massa nooit direct met de voeding! Als je het wel doet, dan
 
 De GPS (of meer algemeen: GNSS[1]) stuurt een serieel (1 draad voor zenden (TX, de blauwe draad) en 1 draad (optioneel) voor ontvangen) bytes door volgens het [NMEA protocol](https://nl.wikipedia.org/wiki/NMEA-0183).
 
-<img width="1121" height="725" alt="Screenshot 2025-08-19 at 17 53 27" src="https://github.com/user-attachments/assets/2049d0f2-d8e1-4d43-b10b-91fe0d582b08" />
+<img width="890" height="636" alt="XIAO_GNSS_bb" src="https://github.com/user-attachments/assets/d13e407d-406a-4770-bb04-f43a2fa420d2" />
 
 >Let op: de GPS wordt gevoed met 5V - het signaal terug naar de XIAO is slecht 3.3V
 
@@ -36,6 +36,7 @@ De blauwe TX draad (van de GPS) gaat naar het RX contact (pin D7) van de XIAO di
 Open ArduinoIDE en laad het `Stap3_GNSS.ino` bestand; compileer en upload!
 
 [1] GPS, Beidou, Glonass, Galileo, QZSS, SBAS ...
+
 
 
 
